@@ -1,8 +1,8 @@
 {
  "program": "Desarrollo de Videojuegos Moderno",
  "total_planned": 292,
- "total_built": 155,
- "parts_built": 8,
+ "total_built": 292,
+ "parts_built": 18,
  "parts": [
   {
    "idx": 0,
@@ -874,8 +874,89 @@
    "start": 156,
    "end": 171,
    "count": 16,
-   "built": false,
-   "classes": []
+   "built": true,
+   "classes": [
+    {
+     "num": 156,
+     "title": "Qué es el game design: mecánicas, dinámicas y estética (MDA)",
+     "slug": "156-que-es-el-game-design-mecanicas-dinamicas-y-estetica-mda"
+    },
+    {
+     "num": 157,
+     "title": "El core loop y los pilares de diseño",
+     "slug": "157-el-core-loop-y-los-pilares-de-diseno"
+    },
+    {
+     "num": 158,
+     "title": "Mecánicas, verbos y economía del jugador",
+     "slug": "158-mecanicas-verbos-y-economia-del-jugador"
+    },
+    {
+     "num": 159,
+     "title": "Sistemas, feedback y bucles",
+     "slug": "159-sistemas-feedback-y-bucles"
+    },
+    {
+     "num": 160,
+     "title": "Curvas de dificultad y progresión",
+     "slug": "160-curvas-de-dificultad-y-progresion"
+    },
+    {
+     "num": 161,
+     "title": "Balanceo de juego: números, spreadsheets y tuning",
+     "slug": "161-balanceo-de-juego-numeros-spreadsheets-y-tuning"
+    },
+    {
+     "num": 162,
+     "title": "Aleatoriedad, azar y percepción de justicia",
+     "slug": "162-aleatoriedad-azar-y-percepcion-de-justicia"
+    },
+    {
+     "num": 163,
+     "title": "Recompensas, motivación y psicología del jugador",
+     "slug": "163-recompensas-motivacion-y-psicologia-del-jugador"
+    },
+    {
+     "num": 164,
+     "title": "Onboarding y enseñar sin tutoriales",
+     "slug": "164-onboarding-y-ensenar-sin-tutoriales"
+    },
+    {
+     "num": 165,
+     "title": "Diseño de niveles: principios y lenguaje visual",
+     "slug": "165-diseno-de-niveles-principios-y-lenguaje-visual"
+    },
+    {
+     "num": 166,
+     "title": "Pacing, ritmo y composición de un nivel",
+     "slug": "166-pacing-ritmo-y-composicion-de-un-nivel"
+    },
+    {
+     "num": 167,
+     "title": "Diseño de niveles con propósito y el bucle greybox",
+     "slug": "167-diseno-de-niveles-con-proposito-y-el-bucle-greybox"
+    },
+    {
+     "num": 168,
+     "title": "Narrativa y storytelling en juegos",
+     "slug": "168-narrativa-y-storytelling-en-juegos"
+    },
+    {
+     "num": 169,
+     "title": "Diseño de sistemas emergentes y sandbox",
+     "slug": "169-diseno-de-sistemas-emergentes-y-sandbox"
+    },
+    {
+     "num": 170,
+     "title": "Documentación de diseño: GDD y one-pager",
+     "slug": "170-documentacion-de-diseno-gdd-y-one-pager"
+    },
+    {
+     "num": 171,
+     "title": "Capstone Parte 8: diseñar y greyboxear un nivel completo",
+     "slug": "171-capstone-parte-8-disenar-y-greyboxear-un-nivel-completo"
+    }
+   ]
   },
   {
    "idx": 9,
@@ -884,8 +965,89 @@
    "start": 172,
    "end": 187,
    "count": 16,
-   "built": false,
-   "classes": []
+   "built": true,
+   "classes": [
+    {
+     "num": 172,
+     "title": "Fundamentos de arte para desarrolladores",
+     "slug": "172-fundamentos-de-arte-para-desarrolladores"
+    },
+    {
+     "num": 173,
+     "title": "Dirección de arte y coherencia visual",
+     "slug": "173-direccion-de-arte-y-coherencia-visual"
+    },
+    {
+     "num": 174,
+     "title": "Pixel art: fundamentos y Aseprite",
+     "slug": "174-pixel-art-fundamentos-y-aseprite"
+    },
+    {
+     "num": 175,
+     "title": "Arte 2D vectorial y digital painting",
+     "slug": "175-arte-2d-vectorial-y-digital-painting"
+    },
+    {
+     "num": 176,
+     "title": "Animación 2D: principios y frame-by-frame",
+     "slug": "176-animacion-2d-principios-y-frame-by-frame"
+    },
+    {
+     "num": 177,
+     "title": "Animación 2D esqueletal (cutout) y rigging",
+     "slug": "177-animacion-2d-esqueletal-cutout-y-rigging"
+    },
+    {
+     "num": 178,
+     "title": "Modelado 3D: fundamentos con Blender",
+     "slug": "178-modelado-3d-fundamentos-con-blender"
+    },
+    {
+     "num": 179,
+     "title": "UV mapping y texturizado",
+     "slug": "179-uv-mapping-y-texturizado"
+    },
+    {
+     "num": 180,
+     "title": "Materiales PBR y texturas",
+     "slug": "180-materiales-pbr-y-texturas"
+    },
+    {
+     "num": 181,
+     "title": "Rigging y skinning 3D",
+     "slug": "181-rigging-y-skinning-3d"
+    },
+    {
+     "num": 182,
+     "title": "Animación 3D: los 12 principios aplicados",
+     "slug": "182-animacion-3d-los-12-principios-aplicados"
+    },
+    {
+     "num": 183,
+     "title": "Sculpting y retopología",
+     "slug": "183-sculpting-y-retopologia"
+    },
+    {
+     "num": 184,
+     "title": "Efectos visuales (VFX) y partículas artísticas",
+     "slug": "184-efectos-visuales-vfx-y-particulas-artisticas"
+    },
+    {
+     "num": 185,
+     "title": "Iluminación como arte y mood",
+     "slug": "185-iluminacion-como-arte-y-mood"
+    },
+    {
+     "num": 186,
+     "title": "Pipeline de assets: nomenclatura, LODs y optimización",
+     "slug": "186-pipeline-de-assets-nomenclatura-lods-y-optimizacion"
+    },
+    {
+     "num": 187,
+     "title": "Capstone Parte 9: un set de assets coherente",
+     "slug": "187-capstone-parte-9-un-set-de-assets-coherente"
+    }
+   ]
   },
   {
    "idx": 10,
@@ -894,8 +1056,69 @@
    "start": 188,
    "end": 199,
    "count": 12,
-   "built": false,
-   "classes": []
+   "built": true,
+   "classes": [
+    {
+     "num": 188,
+     "title": "Fundamentos de UI/UX en juegos",
+     "slug": "188-fundamentos-de-ui-ux-en-juegos"
+    },
+    {
+     "num": 189,
+     "title": "Sistema de UI de Godot: Control, Containers y anclas",
+     "slug": "189-sistema-de-ui-de-godot-control-containers-y-anclas"
+    },
+    {
+     "num": 190,
+     "title": "Theming y estilos de UI escalables",
+     "slug": "190-theming-y-estilos-de-ui-escalables"
+    },
+    {
+     "num": 191,
+     "title": "HUD diegético y no diegético",
+     "slug": "191-hud-diegetico-y-no-diegetico"
+    },
+    {
+     "num": 192,
+     "title": "Menús, navegación y flujo de pantallas",
+     "slug": "192-menus-navegacion-y-flujo-de-pantallas"
+    },
+    {
+     "num": 193,
+     "title": "Feedback, juice y animación de UI",
+     "slug": "193-feedback-juice-y-animacion-de-ui"
+    },
+    {
+     "num": 194,
+     "title": "UI responsive: múltiples resoluciones y aspect ratios",
+     "slug": "194-ui-responsive-multiples-resoluciones-y-aspect-ratios"
+    },
+    {
+     "num": 195,
+     "title": "Input de UI: teclado, gamepad y táctil",
+     "slug": "195-input-de-ui-teclado-gamepad-y-tactil"
+    },
+    {
+     "num": 196,
+     "title": "Accesibilidad en juegos",
+     "slug": "196-accesibilidad-en-juegos"
+    },
+    {
+     "num": 197,
+     "title": "Localización e internacionalización (i18n)",
+     "slug": "197-localizacion-e-internacionalizacion-i18n"
+    },
+    {
+     "num": 198,
+     "title": "Fuentes, tipografía y texto multi-idioma",
+     "slug": "198-fuentes-tipografia-y-texto-multiidioma"
+    },
+    {
+     "num": 199,
+     "title": "Capstone Parte 10: una UI completa, accesible y localizada",
+     "slug": "199-capstone-parte-10-una-ui-completa-accesible-y-localizada"
+    }
+   ]
   },
   {
    "idx": 11,
@@ -904,8 +1127,79 @@
    "start": 200,
    "end": 213,
    "count": 14,
-   "built": false,
-   "classes": []
+   "built": true,
+   "classes": [
+    {
+     "num": 200,
+     "title": "Panorama de plataformas y sus restricciones",
+     "slug": "200-panorama-de-plataformas-y-sus-restricciones"
+    },
+    {
+     "num": 201,
+     "title": "Exportar a Android: setup y firma",
+     "slug": "201-exportar-a-android-setup-y-firma"
+    },
+    {
+     "num": 202,
+     "title": "Exportar a iOS: setup y provisioning",
+     "slug": "202-exportar-a-ios-setup-y-provisioning"
+    },
+    {
+     "num": 203,
+     "title": "Input táctil y controles móviles",
+     "slug": "203-input-tactil-y-controles-moviles"
+    },
+    {
+     "num": 204,
+     "title": "Rendimiento y batería en móvil",
+     "slug": "204-rendimiento-y-bateria-en-movil"
+    },
+    {
+     "num": 205,
+     "title": "Resoluciones, notch y safe areas",
+     "slug": "205-resoluciones-notch-y-safe-areas"
+    },
+    {
+     "num": 206,
+     "title": "Monetización móvil: anuncios y compras in-app",
+     "slug": "206-monetizacion-movil-anuncios-y-compras-in-app"
+    },
+    {
+     "num": 207,
+     "title": "Servicios: Google Play Games y Game Center",
+     "slug": "207-servicios-google-play-games-y-game-center"
+    },
+    {
+     "num": 208,
+     "title": "Publicar en las tiendas móviles",
+     "slug": "208-publicar-en-las-tiendas-moviles"
+    },
+    {
+     "num": 209,
+     "title": "Desarrollo para consolas: panorama y devkits",
+     "slug": "209-desarrollo-para-consolas-panorama-y-devkits"
+    },
+    {
+     "num": 210,
+     "title": "Certificación (TRC/TCR) y requisitos de consola",
+     "slug": "210-certificacion-trc-tcr-y-requisitos-de-consola"
+    },
+    {
+     "num": 211,
+     "title": "Input de consola, logros y guardado en nube",
+     "slug": "211-input-de-consola-logros-y-guardado-en-nube"
+    },
+    {
+     "num": 212,
+     "title": "Steam Deck y compatibilidad PC",
+     "slug": "212-steam-deck-y-compatibilidad-pc"
+    },
+    {
+     "num": 213,
+     "title": "Capstone Parte 11: exportar y pulir para una plataforma",
+     "slug": "213-capstone-parte-11-exportar-y-pulir-para-una-plataforma"
+    }
+   ]
   },
   {
    "idx": 12,
@@ -914,8 +1208,79 @@
    "start": 214,
    "end": 227,
    "count": 14,
-   "built": false,
-   "classes": []
+   "built": true,
+   "classes": [
+    {
+     "num": 214,
+     "title": "El navegador como plataforma de juegos",
+     "slug": "214-el-navegador-como-plataforma-de-juegos"
+    },
+    {
+     "num": 215,
+     "title": "Exportar Godot a HTML5 y WebAssembly",
+     "slug": "215-exportar-godot-a-html5-y-webassembly"
+    },
+    {
+     "num": 216,
+     "title": "JavaScript para juegos: el bucle y Canvas",
+     "slug": "216-javascript-para-juegos-el-bucle-y-canvas"
+    },
+    {
+     "num": 217,
+     "title": "Motores web: Phaser (2D)",
+     "slug": "217-motores-web-phaser-2d"
+    },
+    {
+     "num": 218,
+     "title": "PixiJS y renderizado 2D acelerado",
+     "slug": "218-pixijs-y-renderizado-2d-acelerado"
+    },
+    {
+     "num": 219,
+     "title": "Three.js: 3D en el navegador",
+     "slug": "219-three-js-3d-en-el-navegador"
+    },
+    {
+     "num": 220,
+     "title": "WebGL y el pipeline gráfico web",
+     "slug": "220-webgl-y-el-pipeline-grafico-web"
+    },
+    {
+     "num": 221,
+     "title": "WebGPU: el futuro del render web",
+     "slug": "221-webgpu-el-futuro-del-render-web"
+    },
+    {
+     "num": 222,
+     "title": "Audio e input en la web",
+     "slug": "222-audio-e-input-en-la-web"
+    },
+    {
+     "num": 223,
+     "title": "Networking web: WebSockets y WebRTC",
+     "slug": "223-networking-web-websockets-y-webrtc"
+    },
+    {
+     "num": 224,
+     "title": "Optimización y carga para web",
+     "slug": "224-optimizacion-y-carga-para-web"
+    },
+    {
+     "num": 225,
+     "title": "Distribución: itch.io, Poki y portales HTML5",
+     "slug": "225-distribucion-itch-io-poki-y-portales-html5"
+    },
+    {
+     "num": 226,
+     "title": "PWAs y juegos instalables",
+     "slug": "226-pwas-y-juegos-instalables"
+    },
+    {
+     "num": 227,
+     "title": "Capstone Parte 12: un juego web publicado",
+     "slug": "227-capstone-parte-12-un-juego-web-publicado"
+    }
+   ]
   },
   {
    "idx": 13,
@@ -924,8 +1289,69 @@
    "start": 228,
    "end": 239,
    "count": 12,
-   "built": false,
-   "classes": []
+   "built": true,
+   "classes": [
+    {
+     "num": 228,
+     "title": "Panorama de XR: VR, AR y MR",
+     "slug": "228-panorama-de-xr-vr-ar-y-mr"
+    },
+    {
+     "num": 229,
+     "title": "Hardware XR: visores, tracking y controles",
+     "slug": "229-hardware-xr-visores-tracking-y-controles"
+    },
+    {
+     "num": 230,
+     "title": "OpenXR y el estándar abierto",
+     "slug": "230-openxr-y-el-estandar-abierto"
+    },
+    {
+     "num": 231,
+     "title": "VR en Godot: setup y primera escena",
+     "slug": "231-vr-en-godot-setup-y-primera-escena"
+    },
+    {
+     "num": 232,
+     "title": "Locomoción VR y confort",
+     "slug": "232-locomocion-vr-y-confort"
+    },
+    {
+     "num": 233,
+     "title": "Interacción VR: manos, agarre y UI espacial",
+     "slug": "233-interaccion-vr-manos-agarre-y-ui-espacial"
+    },
+    {
+     "num": 234,
+     "title": "Presencia, escala y diseño para VR",
+     "slug": "234-presencia-escala-y-diseno-para-vr"
+    },
+    {
+     "num": 235,
+     "title": "Realidad aumentada: fundamentos y tracking",
+     "slug": "235-realidad-aumentada-fundamentos-y-tracking"
+    },
+    {
+     "num": 236,
+     "title": "AR con ARCore y ARKit",
+     "slug": "236-ar-con-arcore-y-arkit"
+    },
+    {
+     "num": 237,
+     "title": "Rendimiento en XR",
+     "slug": "237-rendimiento-en-xr"
+    },
+    {
+     "num": 238,
+     "title": "Audio espacial y hápticos",
+     "slug": "238-audio-espacial-y-hapticos"
+    },
+    {
+     "num": 239,
+     "title": "Capstone Parte 13: una experiencia VR o AR mínima",
+     "slug": "239-capstone-parte-13-una-experiencia-vr-o-ar-minima"
+    }
+   ]
   },
   {
    "idx": 14,
@@ -934,8 +1360,84 @@
    "start": 240,
    "end": 254,
    "count": 15,
-   "built": false,
-   "classes": []
+   "built": true,
+   "classes": [
+    {
+     "num": 240,
+     "title": "Mentalidad de rendimiento: medir antes de optimizar",
+     "slug": "240-mentalidad-de-rendimiento-medir-antes-de-optimizar"
+    },
+    {
+     "num": 241,
+     "title": "El profiler: CPU, GPU y frame time",
+     "slug": "241-el-profiler-cpu-gpu-y-frame-time"
+    },
+    {
+     "num": 242,
+     "title": "Presupuesto de frame y objetivos de FPS",
+     "slug": "242-presupuesto-de-frame-y-objetivos-de-fps"
+    },
+    {
+     "num": 243,
+     "title": "Optimización de CPU: lógica, scripts y llamadas",
+     "slug": "243-optimizacion-de-cpu-logica-scripts-y-llamadas"
+    },
+    {
+     "num": 244,
+     "title": "Optimización de GPU: draw calls, overdraw y fillrate",
+     "slug": "244-optimizacion-de-gpu-draw-calls-overdraw-y-fillrate"
+    },
+    {
+     "num": 245,
+     "title": "Gestión de memoria y garbage collection",
+     "slug": "245-gestion-de-memoria-y-garbage-collection"
+    },
+    {
+     "num": 246,
+     "title": "Object pooling y evitar asignaciones",
+     "slug": "246-object-pooling-y-evitar-asignaciones"
+    },
+    {
+     "num": 247,
+     "title": "Optimización de físicas y colisiones",
+     "slug": "247-optimizacion-de-fisicas-y-colisiones"
+    },
+    {
+     "num": 248,
+     "title": "Culling, LOD y streaming de mundo",
+     "slug": "248-culling-lod-y-streaming-de-mundo"
+    },
+    {
+     "num": 249,
+     "title": "Optimización de assets: texturas, mallas y audio",
+     "slug": "249-optimizacion-de-assets-texturas-mallas-y-audio"
+    },
+    {
+     "num": 250,
+     "title": "Multithreading y trabajos en paralelo",
+     "slug": "250-multithreading-y-trabajos-en-paralelo"
+    },
+    {
+     "num": 251,
+     "title": "Tiempos de carga y arranque",
+     "slug": "251-tiempos-de-carga-y-arranque"
+    },
+    {
+     "num": 252,
+     "title": "Optimización por plataforma",
+     "slug": "252-optimizacion-por-plataforma"
+    },
+    {
+     "num": 253,
+     "title": "Herramientas nativas de profiling (RenderDoc)",
+     "slug": "253-herramientas-nativas-de-profiling-renderdoc"
+    },
+    {
+     "num": 254,
+     "title": "Capstone Parte 14: optimizar un proyecto a 60 fps",
+     "slug": "254-capstone-parte-14-optimizar-un-proyecto-a-60-fps"
+    }
+   ]
   },
   {
    "idx": 15,
@@ -944,8 +1446,69 @@
    "start": 255,
    "end": 266,
    "count": 12,
-   "built": false,
-   "classes": []
+   "built": true,
+   "classes": [
+    {
+     "num": 255,
+     "title": "Por qué construir herramientas propias",
+     "slug": "255-por-que-construir-herramientas-propias"
+    },
+    {
+     "num": 256,
+     "title": "Scripts de editor (@tool) en Godot",
+     "slug": "256-scripts-de-editor-tool-en-godot"
+    },
+    {
+     "num": 257,
+     "title": "Plugins de editor y docks personalizados",
+     "slug": "257-plugins-de-editor-y-docks-personalizados"
+    },
+    {
+     "num": 258,
+     "title": "Gizmos e inspectores personalizados",
+     "slug": "258-gizmos-e-inspectores-personalizados"
+    },
+    {
+     "num": 259,
+     "title": "Generación y validación de datos (data-driven)",
+     "slug": "259-generacion-y-validacion-de-datos-data-driven"
+    },
+    {
+     "num": 260,
+     "title": "Recursos personalizados y bases de datos de juego",
+     "slug": "260-recursos-personalizados-y-bases-de-datos-de-juego"
+    },
+    {
+     "num": 261,
+     "title": "Automatización de builds y exportación por CLI",
+     "slug": "261-automatizacion-de-builds-y-exportacion-por-cli"
+    },
+    {
+     "num": 262,
+     "title": "Integración continua (CI) para juegos",
+     "slug": "262-integracion-continua-ci-para-juegos"
+    },
+    {
+     "num": 263,
+     "title": "Control de versiones avanzado para equipos",
+     "slug": "263-control-de-versiones-avanzado-para-equipos"
+    },
+    {
+     "num": 264,
+     "title": "Testing automatizado de juegos (GUT)",
+     "slug": "264-testing-automatizado-de-juegos-gut"
+    },
+    {
+     "num": 265,
+     "title": "Editores de niveles y contenido in-game",
+     "slug": "265-editores-de-niveles-y-contenido-in-game"
+    },
+    {
+     "num": 266,
+     "title": "Capstone Parte 15: una herramienta o plugin de editor",
+     "slug": "266-capstone-parte-15-una-herramienta-o-plugin-de-editor"
+    }
+   ]
   },
   {
    "idx": 16,
@@ -954,8 +1517,79 @@
    "start": 267,
    "end": 280,
    "count": 14,
-   "built": false,
-   "classes": []
+   "built": true,
+   "classes": [
+    {
+     "num": 267,
+     "title": "Producción de juegos: scope, milestones y agile",
+     "slug": "267-produccion-de-juegos-scope-milestones-y-agile"
+    },
+    {
+     "num": 268,
+     "title": "Formar y gestionar un equipo",
+     "slug": "268-formar-y-gestionar-un-equipo"
+    },
+    {
+     "num": 269,
+     "title": "Financiación: publishers, grants y crowdfunding",
+     "slug": "269-financiacion-publishers-grants-y-crowdfunding"
+    },
+    {
+     "num": 270,
+     "title": "Modelos de negocio y monetización",
+     "slug": "270-modelos-de-negocio-y-monetizacion"
+    },
+    {
+     "num": 271,
+     "title": "Marketing y construcción de comunidad",
+     "slug": "271-marketing-y-construccion-de-comunidad"
+    },
+    {
+     "num": 272,
+     "title": "Steam: página, wishlists y lanzamiento",
+     "slug": "272-steam-pagina-wishlists-y-lanzamiento"
+    },
+    {
+     "num": 273,
+     "title": "Presupuesto, contratos y aspectos legales",
+     "slug": "273-presupuesto-contratos-y-aspectos-legales"
+    },
+    {
+     "num": 274,
+     "title": "QA, testing y gestión de bugs",
+     "slug": "274-qa-testing-y-gestion-de-bugs"
+    },
+    {
+     "num": 275,
+     "title": "Beta, early access y feedback",
+     "slug": "275-beta-early-access-y-feedback"
+    },
+    {
+     "num": 276,
+     "title": "Lanzamiento: checklist y día del launch",
+     "slug": "276-lanzamiento-checklist-y-dia-del-launch"
+    },
+    {
+     "num": 277,
+     "title": "LiveOps: eventos, temporadas y contenido continuo",
+     "slug": "277-liveops-eventos-temporadas-y-contenido-continuo"
+    },
+    {
+     "num": 278,
+     "title": "Analítica de juego y telemetría",
+     "slug": "278-analitica-de-juego-y-telemetria"
+    },
+    {
+     "num": 279,
+     "title": "Post-lanzamiento: parches, comunidad y retención",
+     "slug": "279-post-lanzamiento-parches-comunidad-y-retencion"
+    },
+    {
+     "num": 280,
+     "title": "Capstone Parte 16: un plan de producción y lanzamiento",
+     "slug": "280-capstone-parte-16-un-plan-de-produccion-y-lanzamiento"
+    }
+   ]
   },
   {
    "idx": 17,
@@ -964,8 +1598,69 @@
    "start": 281,
    "end": 292,
    "count": 12,
-   "built": false,
-   "classes": []
+   "built": true,
+   "classes": [
+    {
+     "num": 281,
+     "title": "Elegir tu proyecto capstone y su alcance",
+     "slug": "281-elegir-tu-proyecto-capstone-y-su-alcance"
+    },
+    {
+     "num": 282,
+     "title": "De la idea al vertical slice",
+     "slug": "282-de-la-idea-al-vertical-slice"
+    },
+    {
+     "num": 283,
+     "title": "Construir el vertical slice",
+     "slug": "283-construir-el-vertical-slice"
+    },
+    {
+     "num": 284,
+     "title": "Pulido, game feel y el último 10%",
+     "slug": "284-pulido-game-feel-y-el-ultimo-10-por-ciento"
+    },
+    {
+     "num": 285,
+     "title": "Playtesting formal y iteración con datos",
+     "slug": "285-playtesting-formal-y-iteracion-con-datos"
+    },
+    {
+     "num": 286,
+     "title": "Preparar el juego para el público",
+     "slug": "286-preparar-el-juego-para-el-publico"
+    },
+    {
+     "num": 287,
+     "title": "Tu portfolio de desarrollador de juegos",
+     "slug": "287-tu-portfolio-de-desarrollador-de-juegos"
+    },
+    {
+     "num": 288,
+     "title": "El demo reel y presentar tu trabajo",
+     "slug": "288-el-demo-reel-y-presentar-tu-trabajo"
+    },
+    {
+     "num": 289,
+     "title": "Currículum, entrevistas y pruebas técnicas",
+     "slug": "289-curriculum-entrevistas-y-pruebas-tecnicas"
+    },
+    {
+     "num": 290,
+     "title": "Game jams como trampolín profesional",
+     "slug": "290-game-jams-como-trampolin-profesional"
+    },
+    {
+     "num": 291,
+     "title": "Comunidad, networking y carrera en la industria",
+     "slug": "291-comunidad-networking-y-carrera-en-la-industria"
+    },
+    {
+     "num": 292,
+     "title": "Capstone final: publica tu juego y tu portfolio",
+     "slug": "292-capstone-final-publica-tu-juego-y-tu-portfolio"
+    }
+   ]
   }
  ]
 }

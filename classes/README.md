@@ -3,7 +3,7 @@
 > [⬅️ Volver al programa](../README.md) · [🗺️ Roadmap](../ROADMAP.md)
 
 Programa secuencial de **292 clases** en **18 partes**. La numeración es global (001→…) y el orden importa: cada clase asume la anterior.
-**Estado:** 155 clases construidas en 8 de 18 partes · 137 clases planificadas.
+**Estado:** 292 clases construidas en 18 de 18 partes · 0 clases planificadas.
 
 
 ---
@@ -219,22 +219,209 @@ Programa secuencial de **292 clases** en **18 partes**. La numeración es global
 | 154 | [Seguridad en multijugador: validación y exploits](parte-7-multijugador-y-networking/154-seguridad-en-multijugador-validacion-y-exploits/README.md) |
 | 155 | [Capstone Parte 7: un juego en red mínimo cliente-servidor](parte-7-multijugador-y-networking/155-capstone-parte-7-un-juego-en-red-minimo-cliente-servidor/README.md) |
 
-## 🔜 Parte 8 — Game design y diseño de niveles · clases 156–171 · 16 clases *(planificada)*
+## ✅ Parte 8 — Game design y diseño de niveles · clases 156–171
 
-## 🔜 Parte 9 — Arte, animación y pipeline de assets · clases 172–187 · 16 clases *(planificada)*
+> [📂 Ver README de la parte](parte-8-game-design-y-diseno-de-niveles/README.md)
 
-## 🔜 Parte 10 — UI/UX, accesibilidad y localización · clases 188–199 · 12 clases *(planificada)*
+| # | Clase |
+|---|---|
+| 156 | [Qué es el game design: mecánicas, dinámicas y estética (MDA)](parte-8-game-design-y-diseno-de-niveles/156-que-es-el-game-design-mecanicas-dinamicas-y-estetica-mda/README.md) |
+| 157 | [El core loop y los pilares de diseño](parte-8-game-design-y-diseno-de-niveles/157-el-core-loop-y-los-pilares-de-diseno/README.md) |
+| 158 | [Mecánicas, verbos y economía del jugador](parte-8-game-design-y-diseno-de-niveles/158-mecanicas-verbos-y-economia-del-jugador/README.md) |
+| 159 | [Sistemas, feedback y bucles](parte-8-game-design-y-diseno-de-niveles/159-sistemas-feedback-y-bucles/README.md) |
+| 160 | [Curvas de dificultad y progresión](parte-8-game-design-y-diseno-de-niveles/160-curvas-de-dificultad-y-progresion/README.md) |
+| 161 | [Balanceo de juego: números, spreadsheets y tuning](parte-8-game-design-y-diseno-de-niveles/161-balanceo-de-juego-numeros-spreadsheets-y-tuning/README.md) |
+| 162 | [Aleatoriedad, azar y percepción de justicia](parte-8-game-design-y-diseno-de-niveles/162-aleatoriedad-azar-y-percepcion-de-justicia/README.md) |
+| 163 | [Recompensas, motivación y psicología del jugador](parte-8-game-design-y-diseno-de-niveles/163-recompensas-motivacion-y-psicologia-del-jugador/README.md) |
+| 164 | [Onboarding y enseñar sin tutoriales](parte-8-game-design-y-diseno-de-niveles/164-onboarding-y-ensenar-sin-tutoriales/README.md) |
+| 165 | [Diseño de niveles: principios y lenguaje visual](parte-8-game-design-y-diseno-de-niveles/165-diseno-de-niveles-principios-y-lenguaje-visual/README.md) |
+| 166 | [Pacing, ritmo y composición de un nivel](parte-8-game-design-y-diseno-de-niveles/166-pacing-ritmo-y-composicion-de-un-nivel/README.md) |
+| 167 | [Diseño de niveles con propósito y el bucle greybox](parte-8-game-design-y-diseno-de-niveles/167-diseno-de-niveles-con-proposito-y-el-bucle-greybox/README.md) |
+| 168 | [Narrativa y storytelling en juegos](parte-8-game-design-y-diseno-de-niveles/168-narrativa-y-storytelling-en-juegos/README.md) |
+| 169 | [Diseño de sistemas emergentes y sandbox](parte-8-game-design-y-diseno-de-niveles/169-diseno-de-sistemas-emergentes-y-sandbox/README.md) |
+| 170 | [Documentación de diseño: GDD y one-pager](parte-8-game-design-y-diseno-de-niveles/170-documentacion-de-diseno-gdd-y-one-pager/README.md) |
+| 171 | [Capstone Parte 8: diseñar y greyboxear un nivel completo](parte-8-game-design-y-diseno-de-niveles/171-capstone-parte-8-disenar-y-greyboxear-un-nivel-completo/README.md) |
 
-## 🔜 Parte 11 — Móvil, consolas y plataformas · clases 200–213 · 14 clases *(planificada)*
+## ✅ Parte 9 — Arte, animación y pipeline de assets · clases 172–187
 
-## 🔜 Parte 12 — Juegos web y HTML5 · clases 214–227 · 14 clases *(planificada)*
+> [📂 Ver README de la parte](parte-9-arte-animacion-y-pipeline-de-assets/README.md)
 
-## 🔜 Parte 13 — VR, AR y experiencias inmersivas · clases 228–239 · 12 clases *(planificada)*
+| # | Clase |
+|---|---|
+| 172 | [Fundamentos de arte para desarrolladores](parte-9-arte-animacion-y-pipeline-de-assets/172-fundamentos-de-arte-para-desarrolladores/README.md) |
+| 173 | [Dirección de arte y coherencia visual](parte-9-arte-animacion-y-pipeline-de-assets/173-direccion-de-arte-y-coherencia-visual/README.md) |
+| 174 | [Pixel art: fundamentos y Aseprite](parte-9-arte-animacion-y-pipeline-de-assets/174-pixel-art-fundamentos-y-aseprite/README.md) |
+| 175 | [Arte 2D vectorial y digital painting](parte-9-arte-animacion-y-pipeline-de-assets/175-arte-2d-vectorial-y-digital-painting/README.md) |
+| 176 | [Animación 2D: principios y frame-by-frame](parte-9-arte-animacion-y-pipeline-de-assets/176-animacion-2d-principios-y-frame-by-frame/README.md) |
+| 177 | [Animación 2D esqueletal (cutout) y rigging](parte-9-arte-animacion-y-pipeline-de-assets/177-animacion-2d-esqueletal-cutout-y-rigging/README.md) |
+| 178 | [Modelado 3D: fundamentos con Blender](parte-9-arte-animacion-y-pipeline-de-assets/178-modelado-3d-fundamentos-con-blender/README.md) |
+| 179 | [UV mapping y texturizado](parte-9-arte-animacion-y-pipeline-de-assets/179-uv-mapping-y-texturizado/README.md) |
+| 180 | [Materiales PBR y texturas](parte-9-arte-animacion-y-pipeline-de-assets/180-materiales-pbr-y-texturas/README.md) |
+| 181 | [Rigging y skinning 3D](parte-9-arte-animacion-y-pipeline-de-assets/181-rigging-y-skinning-3d/README.md) |
+| 182 | [Animación 3D: los 12 principios aplicados](parte-9-arte-animacion-y-pipeline-de-assets/182-animacion-3d-los-12-principios-aplicados/README.md) |
+| 183 | [Sculpting y retopología](parte-9-arte-animacion-y-pipeline-de-assets/183-sculpting-y-retopologia/README.md) |
+| 184 | [Efectos visuales (VFX) y partículas artísticas](parte-9-arte-animacion-y-pipeline-de-assets/184-efectos-visuales-vfx-y-particulas-artisticas/README.md) |
+| 185 | [Iluminación como arte y mood](parte-9-arte-animacion-y-pipeline-de-assets/185-iluminacion-como-arte-y-mood/README.md) |
+| 186 | [Pipeline de assets: nomenclatura, LODs y optimización](parte-9-arte-animacion-y-pipeline-de-assets/186-pipeline-de-assets-nomenclatura-lods-y-optimizacion/README.md) |
+| 187 | [Capstone Parte 9: un set de assets coherente](parte-9-arte-animacion-y-pipeline-de-assets/187-capstone-parte-9-un-set-de-assets-coherente/README.md) |
 
-## 🔜 Parte 14 — Optimización, profiling y rendimiento · clases 240–254 · 15 clases *(planificada)*
+## ✅ Parte 10 — UI/UX, accesibilidad y localización · clases 188–199
 
-## 🔜 Parte 15 — Herramientas, editores y automatización (tooling) · clases 255–266 · 12 clases *(planificada)*
+> [📂 Ver README de la parte](parte-10-ui-ux-accesibilidad-y-localizacion/README.md)
 
-## 🔜 Parte 16 — Producción, publicación, monetización y LiveOps · clases 267–280 · 14 clases *(planificada)*
+| # | Clase |
+|---|---|
+| 188 | [Fundamentos de UI/UX en juegos](parte-10-ui-ux-accesibilidad-y-localizacion/188-fundamentos-de-ui-ux-en-juegos/README.md) |
+| 189 | [Sistema de UI de Godot: Control, Containers y anclas](parte-10-ui-ux-accesibilidad-y-localizacion/189-sistema-de-ui-de-godot-control-containers-y-anclas/README.md) |
+| 190 | [Theming y estilos de UI escalables](parte-10-ui-ux-accesibilidad-y-localizacion/190-theming-y-estilos-de-ui-escalables/README.md) |
+| 191 | [HUD diegético y no diegético](parte-10-ui-ux-accesibilidad-y-localizacion/191-hud-diegetico-y-no-diegetico/README.md) |
+| 192 | [Menús, navegación y flujo de pantallas](parte-10-ui-ux-accesibilidad-y-localizacion/192-menus-navegacion-y-flujo-de-pantallas/README.md) |
+| 193 | [Feedback, juice y animación de UI](parte-10-ui-ux-accesibilidad-y-localizacion/193-feedback-juice-y-animacion-de-ui/README.md) |
+| 194 | [UI responsive: múltiples resoluciones y aspect ratios](parte-10-ui-ux-accesibilidad-y-localizacion/194-ui-responsive-multiples-resoluciones-y-aspect-ratios/README.md) |
+| 195 | [Input de UI: teclado, gamepad y táctil](parte-10-ui-ux-accesibilidad-y-localizacion/195-input-de-ui-teclado-gamepad-y-tactil/README.md) |
+| 196 | [Accesibilidad en juegos](parte-10-ui-ux-accesibilidad-y-localizacion/196-accesibilidad-en-juegos/README.md) |
+| 197 | [Localización e internacionalización (i18n)](parte-10-ui-ux-accesibilidad-y-localizacion/197-localizacion-e-internacionalizacion-i18n/README.md) |
+| 198 | [Fuentes, tipografía y texto multi-idioma](parte-10-ui-ux-accesibilidad-y-localizacion/198-fuentes-tipografia-y-texto-multiidioma/README.md) |
+| 199 | [Capstone Parte 10: una UI completa, accesible y localizada](parte-10-ui-ux-accesibilidad-y-localizacion/199-capstone-parte-10-una-ui-completa-accesible-y-localizada/README.md) |
 
-## 🔜 Parte 17 — Capstones y preparación profesional / portfolio · clases 281–292 · 12 clases *(planificada)*
+## ✅ Parte 11 — Móvil, consolas y plataformas · clases 200–213
+
+> [📂 Ver README de la parte](parte-11-movil-consolas-y-plataformas/README.md)
+
+| # | Clase |
+|---|---|
+| 200 | [Panorama de plataformas y sus restricciones](parte-11-movil-consolas-y-plataformas/200-panorama-de-plataformas-y-sus-restricciones/README.md) |
+| 201 | [Exportar a Android: setup y firma](parte-11-movil-consolas-y-plataformas/201-exportar-a-android-setup-y-firma/README.md) |
+| 202 | [Exportar a iOS: setup y provisioning](parte-11-movil-consolas-y-plataformas/202-exportar-a-ios-setup-y-provisioning/README.md) |
+| 203 | [Input táctil y controles móviles](parte-11-movil-consolas-y-plataformas/203-input-tactil-y-controles-moviles/README.md) |
+| 204 | [Rendimiento y batería en móvil](parte-11-movil-consolas-y-plataformas/204-rendimiento-y-bateria-en-movil/README.md) |
+| 205 | [Resoluciones, notch y safe areas](parte-11-movil-consolas-y-plataformas/205-resoluciones-notch-y-safe-areas/README.md) |
+| 206 | [Monetización móvil: anuncios y compras in-app](parte-11-movil-consolas-y-plataformas/206-monetizacion-movil-anuncios-y-compras-in-app/README.md) |
+| 207 | [Servicios: Google Play Games y Game Center](parte-11-movil-consolas-y-plataformas/207-servicios-google-play-games-y-game-center/README.md) |
+| 208 | [Publicar en las tiendas móviles](parte-11-movil-consolas-y-plataformas/208-publicar-en-las-tiendas-moviles/README.md) |
+| 209 | [Desarrollo para consolas: panorama y devkits](parte-11-movil-consolas-y-plataformas/209-desarrollo-para-consolas-panorama-y-devkits/README.md) |
+| 210 | [Certificación (TRC/TCR) y requisitos de consola](parte-11-movil-consolas-y-plataformas/210-certificacion-trc-tcr-y-requisitos-de-consola/README.md) |
+| 211 | [Input de consola, logros y guardado en nube](parte-11-movil-consolas-y-plataformas/211-input-de-consola-logros-y-guardado-en-nube/README.md) |
+| 212 | [Steam Deck y compatibilidad PC](parte-11-movil-consolas-y-plataformas/212-steam-deck-y-compatibilidad-pc/README.md) |
+| 213 | [Capstone Parte 11: exportar y pulir para una plataforma](parte-11-movil-consolas-y-plataformas/213-capstone-parte-11-exportar-y-pulir-para-una-plataforma/README.md) |
+
+## ✅ Parte 12 — Juegos web y HTML5 · clases 214–227
+
+> [📂 Ver README de la parte](parte-12-juegos-web-y-html5/README.md)
+
+| # | Clase |
+|---|---|
+| 214 | [El navegador como plataforma de juegos](parte-12-juegos-web-y-html5/214-el-navegador-como-plataforma-de-juegos/README.md) |
+| 215 | [Exportar Godot a HTML5 y WebAssembly](parte-12-juegos-web-y-html5/215-exportar-godot-a-html5-y-webassembly/README.md) |
+| 216 | [JavaScript para juegos: el bucle y Canvas](parte-12-juegos-web-y-html5/216-javascript-para-juegos-el-bucle-y-canvas/README.md) |
+| 217 | [Motores web: Phaser (2D)](parte-12-juegos-web-y-html5/217-motores-web-phaser-2d/README.md) |
+| 218 | [PixiJS y renderizado 2D acelerado](parte-12-juegos-web-y-html5/218-pixijs-y-renderizado-2d-acelerado/README.md) |
+| 219 | [Three.js: 3D en el navegador](parte-12-juegos-web-y-html5/219-three-js-3d-en-el-navegador/README.md) |
+| 220 | [WebGL y el pipeline gráfico web](parte-12-juegos-web-y-html5/220-webgl-y-el-pipeline-grafico-web/README.md) |
+| 221 | [WebGPU: el futuro del render web](parte-12-juegos-web-y-html5/221-webgpu-el-futuro-del-render-web/README.md) |
+| 222 | [Audio e input en la web](parte-12-juegos-web-y-html5/222-audio-e-input-en-la-web/README.md) |
+| 223 | [Networking web: WebSockets y WebRTC](parte-12-juegos-web-y-html5/223-networking-web-websockets-y-webrtc/README.md) |
+| 224 | [Optimización y carga para web](parte-12-juegos-web-y-html5/224-optimizacion-y-carga-para-web/README.md) |
+| 225 | [Distribución: itch.io, Poki y portales HTML5](parte-12-juegos-web-y-html5/225-distribucion-itch-io-poki-y-portales-html5/README.md) |
+| 226 | [PWAs y juegos instalables](parte-12-juegos-web-y-html5/226-pwas-y-juegos-instalables/README.md) |
+| 227 | [Capstone Parte 12: un juego web publicado](parte-12-juegos-web-y-html5/227-capstone-parte-12-un-juego-web-publicado/README.md) |
+
+## ✅ Parte 13 — VR, AR y experiencias inmersivas · clases 228–239
+
+> [📂 Ver README de la parte](parte-13-vr-ar-y-experiencias-inmersivas/README.md)
+
+| # | Clase |
+|---|---|
+| 228 | [Panorama de XR: VR, AR y MR](parte-13-vr-ar-y-experiencias-inmersivas/228-panorama-de-xr-vr-ar-y-mr/README.md) |
+| 229 | [Hardware XR: visores, tracking y controles](parte-13-vr-ar-y-experiencias-inmersivas/229-hardware-xr-visores-tracking-y-controles/README.md) |
+| 230 | [OpenXR y el estándar abierto](parte-13-vr-ar-y-experiencias-inmersivas/230-openxr-y-el-estandar-abierto/README.md) |
+| 231 | [VR en Godot: setup y primera escena](parte-13-vr-ar-y-experiencias-inmersivas/231-vr-en-godot-setup-y-primera-escena/README.md) |
+| 232 | [Locomoción VR y confort](parte-13-vr-ar-y-experiencias-inmersivas/232-locomocion-vr-y-confort/README.md) |
+| 233 | [Interacción VR: manos, agarre y UI espacial](parte-13-vr-ar-y-experiencias-inmersivas/233-interaccion-vr-manos-agarre-y-ui-espacial/README.md) |
+| 234 | [Presencia, escala y diseño para VR](parte-13-vr-ar-y-experiencias-inmersivas/234-presencia-escala-y-diseno-para-vr/README.md) |
+| 235 | [Realidad aumentada: fundamentos y tracking](parte-13-vr-ar-y-experiencias-inmersivas/235-realidad-aumentada-fundamentos-y-tracking/README.md) |
+| 236 | [AR con ARCore y ARKit](parte-13-vr-ar-y-experiencias-inmersivas/236-ar-con-arcore-y-arkit/README.md) |
+| 237 | [Rendimiento en XR](parte-13-vr-ar-y-experiencias-inmersivas/237-rendimiento-en-xr/README.md) |
+| 238 | [Audio espacial y hápticos](parte-13-vr-ar-y-experiencias-inmersivas/238-audio-espacial-y-hapticos/README.md) |
+| 239 | [Capstone Parte 13: una experiencia VR o AR mínima](parte-13-vr-ar-y-experiencias-inmersivas/239-capstone-parte-13-una-experiencia-vr-o-ar-minima/README.md) |
+
+## ✅ Parte 14 — Optimización, profiling y rendimiento · clases 240–254
+
+> [📂 Ver README de la parte](parte-14-optimizacion-profiling-y-rendimiento/README.md)
+
+| # | Clase |
+|---|---|
+| 240 | [Mentalidad de rendimiento: medir antes de optimizar](parte-14-optimizacion-profiling-y-rendimiento/240-mentalidad-de-rendimiento-medir-antes-de-optimizar/README.md) |
+| 241 | [El profiler: CPU, GPU y frame time](parte-14-optimizacion-profiling-y-rendimiento/241-el-profiler-cpu-gpu-y-frame-time/README.md) |
+| 242 | [Presupuesto de frame y objetivos de FPS](parte-14-optimizacion-profiling-y-rendimiento/242-presupuesto-de-frame-y-objetivos-de-fps/README.md) |
+| 243 | [Optimización de CPU: lógica, scripts y llamadas](parte-14-optimizacion-profiling-y-rendimiento/243-optimizacion-de-cpu-logica-scripts-y-llamadas/README.md) |
+| 244 | [Optimización de GPU: draw calls, overdraw y fillrate](parte-14-optimizacion-profiling-y-rendimiento/244-optimizacion-de-gpu-draw-calls-overdraw-y-fillrate/README.md) |
+| 245 | [Gestión de memoria y garbage collection](parte-14-optimizacion-profiling-y-rendimiento/245-gestion-de-memoria-y-garbage-collection/README.md) |
+| 246 | [Object pooling y evitar asignaciones](parte-14-optimizacion-profiling-y-rendimiento/246-object-pooling-y-evitar-asignaciones/README.md) |
+| 247 | [Optimización de físicas y colisiones](parte-14-optimizacion-profiling-y-rendimiento/247-optimizacion-de-fisicas-y-colisiones/README.md) |
+| 248 | [Culling, LOD y streaming de mundo](parte-14-optimizacion-profiling-y-rendimiento/248-culling-lod-y-streaming-de-mundo/README.md) |
+| 249 | [Optimización de assets: texturas, mallas y audio](parte-14-optimizacion-profiling-y-rendimiento/249-optimizacion-de-assets-texturas-mallas-y-audio/README.md) |
+| 250 | [Multithreading y trabajos en paralelo](parte-14-optimizacion-profiling-y-rendimiento/250-multithreading-y-trabajos-en-paralelo/README.md) |
+| 251 | [Tiempos de carga y arranque](parte-14-optimizacion-profiling-y-rendimiento/251-tiempos-de-carga-y-arranque/README.md) |
+| 252 | [Optimización por plataforma](parte-14-optimizacion-profiling-y-rendimiento/252-optimizacion-por-plataforma/README.md) |
+| 253 | [Herramientas nativas de profiling (RenderDoc)](parte-14-optimizacion-profiling-y-rendimiento/253-herramientas-nativas-de-profiling-renderdoc/README.md) |
+| 254 | [Capstone Parte 14: optimizar un proyecto a 60 fps](parte-14-optimizacion-profiling-y-rendimiento/254-capstone-parte-14-optimizar-un-proyecto-a-60-fps/README.md) |
+
+## ✅ Parte 15 — Herramientas, editores y automatización (tooling) · clases 255–266
+
+> [📂 Ver README de la parte](parte-15-herramientas-editores-y-automatizacion/README.md)
+
+| # | Clase |
+|---|---|
+| 255 | [Por qué construir herramientas propias](parte-15-herramientas-editores-y-automatizacion/255-por-que-construir-herramientas-propias/README.md) |
+| 256 | [Scripts de editor (@tool) en Godot](parte-15-herramientas-editores-y-automatizacion/256-scripts-de-editor-tool-en-godot/README.md) |
+| 257 | [Plugins de editor y docks personalizados](parte-15-herramientas-editores-y-automatizacion/257-plugins-de-editor-y-docks-personalizados/README.md) |
+| 258 | [Gizmos e inspectores personalizados](parte-15-herramientas-editores-y-automatizacion/258-gizmos-e-inspectores-personalizados/README.md) |
+| 259 | [Generación y validación de datos (data-driven)](parte-15-herramientas-editores-y-automatizacion/259-generacion-y-validacion-de-datos-data-driven/README.md) |
+| 260 | [Recursos personalizados y bases de datos de juego](parte-15-herramientas-editores-y-automatizacion/260-recursos-personalizados-y-bases-de-datos-de-juego/README.md) |
+| 261 | [Automatización de builds y exportación por CLI](parte-15-herramientas-editores-y-automatizacion/261-automatizacion-de-builds-y-exportacion-por-cli/README.md) |
+| 262 | [Integración continua (CI) para juegos](parte-15-herramientas-editores-y-automatizacion/262-integracion-continua-ci-para-juegos/README.md) |
+| 263 | [Control de versiones avanzado para equipos](parte-15-herramientas-editores-y-automatizacion/263-control-de-versiones-avanzado-para-equipos/README.md) |
+| 264 | [Testing automatizado de juegos (GUT)](parte-15-herramientas-editores-y-automatizacion/264-testing-automatizado-de-juegos-gut/README.md) |
+| 265 | [Editores de niveles y contenido in-game](parte-15-herramientas-editores-y-automatizacion/265-editores-de-niveles-y-contenido-in-game/README.md) |
+| 266 | [Capstone Parte 15: una herramienta o plugin de editor](parte-15-herramientas-editores-y-automatizacion/266-capstone-parte-15-una-herramienta-o-plugin-de-editor/README.md) |
+
+## ✅ Parte 16 — Producción, publicación, monetización y LiveOps · clases 267–280
+
+> [📂 Ver README de la parte](parte-16-produccion-publicacion-monetizacion-y-liveops/README.md)
+
+| # | Clase |
+|---|---|
+| 267 | [Producción de juegos: scope, milestones y agile](parte-16-produccion-publicacion-monetizacion-y-liveops/267-produccion-de-juegos-scope-milestones-y-agile/README.md) |
+| 268 | [Formar y gestionar un equipo](parte-16-produccion-publicacion-monetizacion-y-liveops/268-formar-y-gestionar-un-equipo/README.md) |
+| 269 | [Financiación: publishers, grants y crowdfunding](parte-16-produccion-publicacion-monetizacion-y-liveops/269-financiacion-publishers-grants-y-crowdfunding/README.md) |
+| 270 | [Modelos de negocio y monetización](parte-16-produccion-publicacion-monetizacion-y-liveops/270-modelos-de-negocio-y-monetizacion/README.md) |
+| 271 | [Marketing y construcción de comunidad](parte-16-produccion-publicacion-monetizacion-y-liveops/271-marketing-y-construccion-de-comunidad/README.md) |
+| 272 | [Steam: página, wishlists y lanzamiento](parte-16-produccion-publicacion-monetizacion-y-liveops/272-steam-pagina-wishlists-y-lanzamiento/README.md) |
+| 273 | [Presupuesto, contratos y aspectos legales](parte-16-produccion-publicacion-monetizacion-y-liveops/273-presupuesto-contratos-y-aspectos-legales/README.md) |
+| 274 | [QA, testing y gestión de bugs](parte-16-produccion-publicacion-monetizacion-y-liveops/274-qa-testing-y-gestion-de-bugs/README.md) |
+| 275 | [Beta, early access y feedback](parte-16-produccion-publicacion-monetizacion-y-liveops/275-beta-early-access-y-feedback/README.md) |
+| 276 | [Lanzamiento: checklist y día del launch](parte-16-produccion-publicacion-monetizacion-y-liveops/276-lanzamiento-checklist-y-dia-del-launch/README.md) |
+| 277 | [LiveOps: eventos, temporadas y contenido continuo](parte-16-produccion-publicacion-monetizacion-y-liveops/277-liveops-eventos-temporadas-y-contenido-continuo/README.md) |
+| 278 | [Analítica de juego y telemetría](parte-16-produccion-publicacion-monetizacion-y-liveops/278-analitica-de-juego-y-telemetria/README.md) |
+| 279 | [Post-lanzamiento: parches, comunidad y retención](parte-16-produccion-publicacion-monetizacion-y-liveops/279-post-lanzamiento-parches-comunidad-y-retencion/README.md) |
+| 280 | [Capstone Parte 16: un plan de producción y lanzamiento](parte-16-produccion-publicacion-monetizacion-y-liveops/280-capstone-parte-16-un-plan-de-produccion-y-lanzamiento/README.md) |
+
+## ✅ Parte 17 — Capstones y preparación profesional / portfolio · clases 281–292
+
+> [📂 Ver README de la parte](parte-17-capstones-y-preparacion-profesional-portfolio/README.md)
+
+| # | Clase |
+|---|---|
+| 281 | [Elegir tu proyecto capstone y su alcance](parte-17-capstones-y-preparacion-profesional-portfolio/281-elegir-tu-proyecto-capstone-y-su-alcance/README.md) |
+| 282 | [De la idea al vertical slice](parte-17-capstones-y-preparacion-profesional-portfolio/282-de-la-idea-al-vertical-slice/README.md) |
+| 283 | [Construir el vertical slice](parte-17-capstones-y-preparacion-profesional-portfolio/283-construir-el-vertical-slice/README.md) |
+| 284 | [Pulido, game feel y el último 10%](parte-17-capstones-y-preparacion-profesional-portfolio/284-pulido-game-feel-y-el-ultimo-10-por-ciento/README.md) |
+| 285 | [Playtesting formal y iteración con datos](parte-17-capstones-y-preparacion-profesional-portfolio/285-playtesting-formal-y-iteracion-con-datos/README.md) |
+| 286 | [Preparar el juego para el público](parte-17-capstones-y-preparacion-profesional-portfolio/286-preparar-el-juego-para-el-publico/README.md) |
+| 287 | [Tu portfolio de desarrollador de juegos](parte-17-capstones-y-preparacion-profesional-portfolio/287-tu-portfolio-de-desarrollador-de-juegos/README.md) |
+| 288 | [El demo reel y presentar tu trabajo](parte-17-capstones-y-preparacion-profesional-portfolio/288-el-demo-reel-y-presentar-tu-trabajo/README.md) |
+| 289 | [Currículum, entrevistas y pruebas técnicas](parte-17-capstones-y-preparacion-profesional-portfolio/289-curriculum-entrevistas-y-pruebas-tecnicas/README.md) |
+| 290 | [Game jams como trampolín profesional](parte-17-capstones-y-preparacion-profesional-portfolio/290-game-jams-como-trampolin-profesional/README.md) |
+| 291 | [Comunidad, networking y carrera en la industria](parte-17-capstones-y-preparacion-profesional-portfolio/291-comunidad-networking-y-carrera-en-la-industria/README.md) |
+| 292 | [Capstone final: publica tu juego y tu portfolio](parte-17-capstones-y-preparacion-profesional-portfolio/292-capstone-final-publica-tu-juego-y-tu-portfolio/README.md) |

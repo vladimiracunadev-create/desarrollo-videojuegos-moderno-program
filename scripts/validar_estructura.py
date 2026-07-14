@@ -18,6 +18,13 @@ import os
 import re
 import sys
 
+# La salida puede contener emojis/acentos; en Windows la consola usa cp1252 por
+# defecto y reventaría al imprimir. Forzamos UTF-8 cuando es posible.
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CLASSES = os.path.join(ROOT, "classes")
 MIN_BYTES = 600  # un README real es mucho mayor; esto detecta stubs vacíos
@@ -33,9 +40,9 @@ SECCIONES_REQUERIDAS = [
     "## ❓ Preguntas frecuentes",
     "## 🔗 Referencias",
 ]
-# La última clase de una parte enlaza a "Siguiente clase" o a "Siguiente paso":
-# aceptamos cualquier encabezado que empiece por "## ➡️ Siguiente".
-SIGUIENTE_RE = re.compile(r"^##\s+➡️\s+Siguiente", re.MULTILINE)
+# La última clase de una parte enlaza a "Siguiente clase" o a "Siguiente paso";
+# la última clase del programa cierra con "Fin del programa". Aceptamos los tres.
+SIGUIENTE_RE = re.compile(r"^##\s+➡️\s+(Siguiente|Fin del programa)", re.MULTILINE)
 
 
 def main() -> int:

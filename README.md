@@ -2,7 +2,7 @@
 
 # 🎮 Programa de Desarrollo de Videojuegos Moderno
 
-## **~292 clases · 18 partes · de fundamentos a nivel profesional**
+## **292 clases · 18 partes · de fundamentos a nivel profesional**
 
 **El programa de desarrollo de videojuegos más completo en español — desde matemáticas, C#, C++ y game loops hasta motores 2D/3D, shaders, IA de juegos, multijugador, VR/AR, optimización y publicación.**
 
@@ -10,7 +10,7 @@
 [![Security](https://github.com/vladimiracunadev-create/desarrollo-videojuegos-moderno-program/actions/workflows/security.yml/badge.svg?branch=main)](https://github.com/vladimiracunadev-create/desarrollo-videojuegos-moderno-program/actions/workflows/security.yml)
 [![Deploy Pages](https://github.com/vladimiracunadev-create/desarrollo-videojuegos-moderno-program/actions/workflows/deploy-pages.yml/badge.svg?branch=main)](https://github.com/vladimiracunadev-create/desarrollo-videojuegos-moderno-program/actions/workflows/deploy-pages.yml)
 
-[![Clases](https://img.shields.io/badge/clases-155%20listas%20·%20~292%20plan-7c5cff?style=for-the-badge)](classes/README.md)
+[![Clases](https://img.shields.io/badge/clases-292%20·%2018%20partes-7c5cff?style=for-the-badge)](classes/README.md)
 [![Nivel](https://img.shields.io/badge/nivel-fundamentos%20→%20profesional-2e8b57?style=for-the-badge)](classes/README.md)
 [![Idioma](https://img.shields.io/badge/idioma-español-blue?style=for-the-badge)](README.md)
 [![Motores](https://img.shields.io/badge/motores-Godot%20·%20Unity%20·%20Unreal-orange?style=for-the-badge)](classes/README.md)
@@ -22,7 +22,7 @@
 
 ---
 
-> 🧭 **Estado del programa.** El diseño curricular abarca las 18 partes listadas abajo. **Construidas y completas: Partes 0 a 7** — 155 clases con laboratorio guiado paso a paso (de los fundamentos y el 2D al 3D, física, shaders, IA, audio y multijugador). Las Partes 8 a 17 están planificadas en el [Roadmap](ROADMAP.md) y se completan con el mismo formato.
+> 🧭 **Estado del programa.** **Programa completo: las 18 partes (292 clases) están construidas** — de los fundamentos, el 2D y el 3D a física, shaders, IA, audio, multijugador, game design, arte, UI, plataformas, web, VR/AR, optimización, tooling, producción y carrera profesional. Cada clase incluye laboratorio guiado paso a paso, ejercicios y reto verificable.
 
 ## 🎯 Qué es esto
 
@@ -66,16 +66,16 @@ El programa es **agnóstico de motor por diseño**: primero enseña los concepto
 | 5 | Inteligencia artificial para juegos | 18 | ✅ |
 | 6 | Audio y música interactiva | 12 | ✅ |
 | 7 | Multijugador y networking | 18 | ✅ |
-| 8 | Game design y diseño de niveles | 16 | 🔜 |
-| 9 | Arte, animación y pipeline de assets | 16 | 🔜 |
-| 10 | UI/UX, accesibilidad y localización | 12 | 🔜 |
-| 11 | Móvil, consolas y plataformas | 14 | 🔜 |
-| 12 | Juegos web y HTML5 | 14 | 🔜 |
-| 13 | VR, AR y experiencias inmersivas | 12 | 🔜 |
-| 14 | Optimización, profiling y rendimiento | 15 | 🔜 |
-| 15 | Herramientas, editores y automatización (tooling) | 12 | 🔜 |
-| 16 | Producción, publicación, monetización y LiveOps | 14 | 🔜 |
-| 17 | Capstones y preparación profesional / portfolio | 12 | 🔜 |
+| 8 | Game design y diseño de niveles | 16 | ✅ |
+| 9 | Arte, animación y pipeline de assets | 16 | ✅ |
+| 10 | UI/UX, accesibilidad y localización | 12 | ✅ |
+| 11 | Móvil, consolas y plataformas | 14 | ✅ |
+| 12 | Juegos web y HTML5 | 14 | ✅ |
+| 13 | VR, AR y experiencias inmersivas | 12 | ✅ |
+| 14 | Optimización, profiling y rendimiento | 15 | ✅ |
+| 15 | Herramientas, editores y automatización (tooling) | 12 | ✅ |
+| 16 | Producción, publicación, monetización y LiveOps | 14 | ✅ |
+| 17 | Capstones y preparación profesional / portfolio | 12 | ✅ |
 
 ➡️ **[Ver el índice completo de clases](classes/README.md)**
 
