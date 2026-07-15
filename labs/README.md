@@ -9,15 +9,17 @@ Las clases explican **cómo** se hace; estos laboratorios son proyectos **reales
 
 Ambas versiones se **verifican en CI con Godot headless** en cada push: se importan, compilan y arrancan. Si el badge está verde, el código de estos labs funciona de verdad.
 
-[![Labs (Godot)](https://github.com/vladimiracunadev-create/desarrollo-videojuegos-moderno-program/actions/workflows/labs.yml/badge.svg?branch=main)](https://github.com/vladimiracunadev-create/desarrollo-videojuegos-moderno-program/actions/workflows/labs.yml)
+[![Labs (Godot)](https://github.com/vladimiracunadev-create/modern-gamedev-program/actions/workflows/labs.yml/badge.svg?branch=main)](https://github.com/vladimiracunadev-create/modern-gamedev-program/actions/workflows/labs.yml)
 
 ## 📦 Laboratorios disponibles
 
 | Lab | Parte | Qué construyes |
 |---|---|---|
 | [**Plataformas 2D**](plataformas-2d/README.md) | [Parte 1](../classes/parte-1-motores-2d-y-tu-primer-juego-jugable/README.md) (clases 026–045) | Un plataformas completo: controlador con game feel, monedas, enemigos, HUD, audio y récord persistente. |
+| [**3D en tercera persona**](3d-tercera-persona/README.md) | [Parte 2](../classes/parte-2-desarrollo-3d-motores-escenas-y-transformaciones/README.md) (clases 046–067) | Un nivel 3D explorable: control relativo a la cámara, cámara orbital con `SpringArm3D`, cristales y portal de salida. |
+| [**Shaders**](shaders/README.md) | [Parte 4](../classes/parte-4-graficos-shaders-y-rendering-moderno/README.md) (clases 086–107) | Una galería de siete shaders con sus uniforms editables en vivo: UV, ondas, disolución, contorno, agua, cel shading y post-procesado CRT. |
 
-> Más laboratorios (3D, shaders, IA, multijugador) se irán añadiendo siguiendo el [roadmap](../ROADMAP.md).
+> Más laboratorios (IA, multijugador) se irán añadiendo siguiendo el [roadmap](../ROADMAP.md).
 
 ## 🚀 Cómo usarlos
 
@@ -29,13 +31,16 @@ Ambas versiones se **verifican en CI con Godot headless** en cada push: se impor
 
 ## 🎨 Sobre los assets
 
-Todos los assets (sprites y sonidos) son **obra original generada por código** con [`scripts/generar_assets.py`](../scripts/generar_assets.py) y están en **dominio público (CC0)**: puedes usarlos para lo que quieras, sin atribución y sin arrastrar licencias de terceros.
+Todos los assets (sprites, texturas y sonidos) son **obra original generada por código** con [`scripts/generar_assets.py`](../scripts/generar_assets.py) y están en **dominio público (CC0)**: puedes usarlos para lo que quieras, sin atribución y sin arrastrar licencias de terceros.
+
+Cada lab declara ahí qué assets necesita, y hay bastante menos de lo que parece: el lab 3D no trae ni una malla (todo son primitivas de Godot montadas por código) y el de shaders solo necesita dos texturas.
 
 ¿Quieres cambiarlos? Edita el generador y vuelve a ejecutarlo:
 
 ```bash
 python -m pip install pillow
-python scripts/generar_assets.py
+python scripts/generar_assets.py            # todos los labs
+python scripts/generar_assets.py shaders    # solo uno
 ```
 
-La CI comprueba que el generador es **determinista** (que regenerar produce exactamente los assets versionados).
+La CI comprueba que el generador es **determinista** (que regenerar produce exactamente los assets versionados, en los dos proyectos de cada lab).

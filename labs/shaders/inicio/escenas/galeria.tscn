@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/galeria.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="Style_marco"]
+bg_color = Color(0.09, 0.1, 0.13, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.34, 0.42, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="Style_panel"]
+bg_color = Color(0, 0, 0, 0.45)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Galeria" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Fondo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13, 0.14, 0.18, 1)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Marco" type="PanelContainer" parent="Centro"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("Style_marco")
+
+[node name="Lienzo" type="TextureRect" parent="Centro/Marco"]
+custom_minimum_size = Vector2(420, 420)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Datos" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 16.0
+offset_right = 400.0
+offset_bottom = 96.0
+grow_horizontal = 2
+
+[node name="Titulo" type="Label" parent="Datos"]
+layout_mode = 2
+text = "Galería de shaders"
+horizontal_alignment = 1
+
+[node name="Idea" type="Label" parent="Datos"]
+layout_mode = 2
+text = "…"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Ayuda" type="Label" parent="Datos"]
+layout_mode = 2
+modulate = Color(1, 1, 1, 0.6)
+text = "← / → cambiar shader"
+horizontal_alignment = 1
+
+[node name="Mandos" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -240.0
+offset_right = 456.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("Style_panel")
+
+[node name="Lista" type="VBoxContainer" parent="Mandos"]
+layout_mode = 2
+
+[node name="Post" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Pantalla" type="ColorRect" parent="Post"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

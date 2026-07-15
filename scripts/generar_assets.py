@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Genera los assets del laboratorio (sprites y SFX) de forma procedural.
+Genera los assets de los laboratorios (sprites, texturas y SFX) de forma procedural.
 
 Todo lo que produce este script es obra original creada por código, por lo que
 se publica bajo **CC0 / dominio público**: no depende de packs de terceros ni
 arrastra licencias ajenas. Es reproducible: borra `assets/` y vuelve a correrlo.
 
-Uso:  python scripts/generar_assets.py [destino ...]
-      (por defecto genera en los proyectos de labs/plataformas-2d/)
+Cada laboratorio tiene su propio conjunto de assets (ver LABS) y se genera por
+duplicado en sus dos proyectos: `inicio/assets/` y `solucion/assets/`, que deben
+ser idénticos.
+
+Uso:  python scripts/generar_assets.py            (todos los labs)
+      python scripts/generar_assets.py shaders    (solo ese lab)
 
 Requiere: pip install pillow
 """
@@ -23,10 +27,9 @@ import wave
 from PIL import Image, ImageDraw
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DESTINOS_POR_DEFECTO = [
-    os.path.join(ROOT, "labs", "plataformas-2d", "solucion", "assets"),
-    os.path.join(ROOT, "labs", "plataformas-2d", "inicio", "assets"),
-]
+
+#: Los dos proyectos de cada lab, en el orden en que se generan.
+PROYECTOS = ("solucion", "inicio")
 
 # Paleta (estilo pixel art plano, alto contraste para buena legibilidad).
 PIEL = (255, 205, 160, 255)
@@ -196,54 +199,164 @@ def _env(i: int, n: int, ataque: float = 0.01, caida: float = 0.6) -> float:
     return max(0.0, (1.0 - (t - ataque) / (1.0 - ataque)) ** (1.0 / caida))
 
 
-def sfx(destino: str, sr: int = 44100) -> None:
-    # Salto: barrido ascendente (onda cuadrada suave).
-    n = int(sr * 0.12)
-    salto = []
+def _barrido(destino: str, nombre: str, f0: float, f1: float, dur: float,
+             sr: int = 44100, vol: float = 0.35, caida: float = 0.6,
+             aspereza: float = 1.0) -> None:
+    """Barrido de frecuencia de f0 a f1: la base de saltos, golpes y daños.
+
+    `aspereza` mezcla seno y onda cuadrada: 1.0 es cuadrada pura (chirrido de
+    consola de 8 bits) y 0.0 es un seno limpio. Los valores intermedios añaden
+    armónicos, que es lo que hace que un sonido se perciba "sucio".
+    """
+    n = int(sr * dur)
+    muestras = []
     fase = 0.0
     for i in range(n):
-        f = 220 + (660 - 220) * (i / n)
-        fase += 2 * math.pi * f / sr
-        salto.append(0.35 * math.copysign(1.0, math.sin(fase)) * _env(i, n))
-    _wav(os.path.join(destino, "salto.wav"), salto)
-
-    # Moneda: dos notas (A5 -> E6), arpegio corto y brillante.
-    n = int(sr * 0.10)
-    monedas = []
-    for idx, f in enumerate((880.0, 1318.5)):
-        for i in range(n):
-            monedas.append(0.30 * math.sin(2 * math.pi * f * i / sr) * _env(i, n))
-    _wav(os.path.join(destino, "moneda.wav"), monedas)
-
-    # Daño: barrido descendente con algo de aspereza.
-    n = int(sr * 0.22)
-    dano = []
-    fase = 0.0
-    for i in range(n):
-        f = 400 - (400 - 110) * (i / n)
+        f = f0 + (f1 - f0) * (i / n)
         fase += 2 * math.pi * f / sr
         s = math.sin(fase)
-        s = 0.7 * s + 0.3 * math.copysign(1.0, s)  # armónicos: más "sucio"
-        dano.append(0.35 * s * _env(i, n, caida=0.9))
-    _wav(os.path.join(destino, "dano.wav"), dano)
+        s = (1.0 - aspereza) * s + aspereza * math.copysign(1.0, s)
+        muestras.append(vol * s * _env(i, n, caida=caida))
+    _wav(os.path.join(destino, nombre), muestras)
+
+
+def _arpegio(destino: str, nombre: str, notas: tuple[float, ...], dur: float,
+             sr: int = 44100, vol: float = 0.30) -> None:
+    """Notas seguidas en tono puro: suena a 'has cogido algo bueno'."""
+    n = int(sr * dur)
+    muestras = []
+    for f in notas:
+        for i in range(n):
+            muestras.append(vol * math.sin(2 * math.pi * f * i / sr) * _env(i, n))
+    _wav(os.path.join(destino, nombre), muestras)
+
+
+def sfx(destino: str, sr: int = 44100) -> None:
+    # Salto: barrido ascendente (onda cuadrada suave).
+    _barrido(destino, "salto.wav", 220.0, 660.0, 0.12, sr)
+    # Moneda: dos notas (A5 -> E6), arpegio corto y brillante.
+    _arpegio(destino, "moneda.wav", (880.0, 1318.5), 0.10, sr)
+    # Daño: barrido descendente y algo sucio (de ahí la aspereza intermedia).
+    _barrido(destino, "dano.wav", 400.0, 110.0, 0.22, sr, caida=0.9, aspereza=0.3)
 
 
 # --------------------------------------------------------------------------
-def generar(destino: str) -> None:
-    os.makedirs(destino, exist_ok=True)
+# Texturas (lab de shaders)
+# --------------------------------------------------------------------------
+def textura_prueba(destino: str) -> None:
+    """Textura de 256x256 para probar shaders sobre algo con detalle real.
+
+    Mezcla damero, degradado y una figura: así se ve de un vistazo qué le hace
+    un shader a la UV (el damero), al color (el degradado) y a las formas (el
+    círculo y las aspas).
+    """
+    img = Image.new("RGBA", (256, 256), VACIO)
+    d = ImageDraw.Draw(img)
+
+    # Degradado vertical de fondo: revela cualquier cambio de brillo o de tono.
+    for y in range(256):
+        t = y / 255.0
+        d.rectangle([0, y, 255, y], fill=(
+            int(40 + 60 * t), int(70 + 90 * t), int(130 + 70 * t), 255))
+
+    # Damero de 32px: hace obvias las distorsiones de UV.
+    for fy in range(8):
+        for fx in range(8):
+            if (fx + fy) % 2 == 0:
+                continue
+            x0, y0 = fx * 32, fy * 32
+            d.rectangle([x0, y0, x0 + 31, y0 + 31], fill=(235, 238, 245, 255))
+
+    # Círculo y aspas centrales: referencia de forma para ondas y remolinos.
+    d.ellipse([78, 78, 177, 177], fill=ORO, outline=ORO_OSC, width=3)
+    d.rectangle([124, 40, 131, 215], fill=ENEMIGO)
+    d.rectangle([40, 124, 215, 131], fill=ENEMIGO)
+
+    img.save(os.path.join(destino, "textura_prueba.png"))
+
+
+def silueta(destino: str) -> None:
+    """Figura opaca de 256x256 sobre fondo TRANSPARENTE.
+
+    El canal alfa es el que hace posibles los shaders de contorno y disolución:
+    sin transparencia no hay silueta que detectar (clase 095).
+    """
+    img = Image.new("RGBA", (256, 256), VACIO)
+    d = ImageDraw.Draw(img)
+
+    # Cuerpo: un cristal romboidal con facetas, legible a contraluz.
+    d.polygon([(128, 18), (214, 128), (128, 238), (42, 128)], fill=(90, 200, 230, 255))
+    d.polygon([(128, 18), (128, 238), (42, 128)], fill=(60, 165, 205, 255))
+    d.polygon([(128, 18), (170, 128), (128, 238)], fill=(150, 225, 245, 255))
+    # Destello: un triángulo claro arriba a la izquierda.
+    d.polygon([(128, 46), (100, 118), (128, 118)], fill=(225, 250, 255, 255))
+
+    img.save(os.path.join(destino, "silueta.png"))
+
+
+# --------------------------------------------------------------------------
+# Conjuntos por laboratorio
+# --------------------------------------------------------------------------
+def generar_plataformas_2d(destino: str) -> None:
     jugador(destino)
     tileset(destino)
     moneda(destino)
     enemigo(destino)
     sfx(destino)
-    print(f"  assets generados en {os.path.relpath(destino, ROOT)}")
+
+
+def generar_3d_tercera_persona(destino: str) -> None:
+    # El relieve y el personaje son primitivas de Godot (BoxMesh, CapsuleMesh):
+    # no hacen falta mallas ni texturas, solo los sonidos.
+    _barrido(destino, "salto.wav", 260.0, 720.0, 0.12)
+    _arpegio(destino, "cristal.wav", (1046.5, 1568.0), 0.09)
+    _arpegio(destino, "portal.wav", (523.3, 659.3, 784.0, 1046.5), 0.13)
+
+
+def generar_shaders(destino: str) -> None:
+    textura_prueba(destino)
+    silueta(destino)
+
+
+#: Registro de laboratorios: nombre de carpeta en labs/ -> qué assets necesita.
+#: Añadir un lab con assets es añadir una línea aquí.
+LABS = {
+    "plataformas-2d": generar_plataformas_2d,
+    "3d-tercera-persona": generar_3d_tercera_persona,
+    "shaders": generar_shaders,
+}
+
+
+def destinos_de(lab: str) -> list[str]:
+    """Los directorios assets/ de los dos proyectos de un lab."""
+    return [os.path.join(ROOT, "labs", lab, p, "assets") for p in PROYECTOS]
+
+
+def generar_en(lab: str, destino: str) -> None:
+    """Genera el conjunto de assets de `lab` dentro de `destino`."""
+    os.makedirs(destino, exist_ok=True)
+    LABS[lab](destino)
+
+
+def generar(lab: str) -> None:
+    """Genera los assets de `lab` en sus dos proyectos (inicio y solucion)."""
+    for destino in destinos_de(lab):
+        generar_en(lab, destino)
+        print(f"  assets generados en {os.path.relpath(destino, ROOT)}")
 
 
 def main(argv: list[str]) -> int:
-    destinos = argv[1:] or DESTINOS_POR_DEFECTO
+    labs = argv[1:] or list(LABS)
+    desconocidos = [x for x in labs if x not in LABS]
+    if desconocidos:
+        print(f"Lab desconocido: {', '.join(desconocidos)}")
+        print(f"Labs disponibles: {', '.join(LABS)}")
+        return 2
+
     print("Generando assets CC0 (obra original por código)...")
-    for d in destinos:
-        generar(d)
+    for lab in labs:
+        print(f"[{lab}]")
+        generar(lab)
     print("Listo.")
     return 0
 

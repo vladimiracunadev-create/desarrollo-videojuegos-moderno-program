@@ -26,6 +26,7 @@ OUT = os.path.join(ROOT, "site")
 # Markdown de origen del nivel superior que se publican.
 INCLUIR_TOP = ["README.md", "ROADMAP.md", "CONTRIBUTING.md", "SECURITY.md",
                "labs/README.md", "labs/plataformas-2d/README.md",
+               "labs/3d-tercera-persona/README.md", "labs/shaders/README.md",
                "rutas/README.md", "autoevaluaciones/README.md", "glosario/README.md"]
 
 LINK_MD = re.compile(r"\]\(([^)]+?)\.md((?:#[^)]*)?)\)")
@@ -289,7 +290,7 @@ def escribir_landing() -> None:
 </main>
 <footer><div class="wrap">
   Programa de Desarrollo de Videojuegos Moderno · {total_hechas} clases listas · licencia
-  <a href="https://github.com/vladimiracunadev-create/desarrollo-videojuegos-moderno-program">MIT en GitHub</a><br>
+  <a href="https://github.com/vladimiracunadev-create/modern-gamedev-program">MIT en GitHub</a><br>
   <a href="classes/README.html">Índice de clases</a> · <a href="ROADMAP.html">Roadmap</a>
 </div></footer>
 """

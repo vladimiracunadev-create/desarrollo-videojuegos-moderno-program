@@ -12,6 +12,10 @@ site/
 # === Godot 4 ===
 # Carpeta de importación/caché del editor (se regenera sola).
 .godot/
+# Metadatos de importación de assets: los regenera `godot --import` (que es lo
+# que hace la CI de labs, y lo que hace el editor al abrir el proyecto). No se
+# versionan porque ningún asset de los labs usa ajustes de importación propios.
+*.import
 # Exportaciones/builds del juego.
 export.cfg
 export_presets.cfg

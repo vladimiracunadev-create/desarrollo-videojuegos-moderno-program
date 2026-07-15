@@ -50,14 +50,12 @@ def _wav_igual(a: str, b: str) -> tuple[bool, str]:
     return True, "ok"
 
 
-def main() -> int:
-    fallos: list[str] = []
+def _verificar_lab(lab: str, fallos: list[str]) -> int:
     revisados = 0
-
     with tempfile.TemporaryDirectory() as tmp:
-        generar_assets.generar(tmp)
+        generar_assets.generar_en(lab, tmp)
 
-        for destino in generar_assets.DESTINOS_POR_DEFECTO:
+        for destino in generar_assets.destinos_de(lab):
             rel_dir = os.path.relpath(destino, ROOT)
             if not os.path.isdir(destino):
                 fallos.append(f"falta el directorio {rel_dir}")
@@ -82,7 +80,24 @@ def main() -> int:
                 if not ok:
                     fallos.append(f"{rel}: {motivo}")
 
-    print("== Verificacion de assets del laboratorio ==")
+            # Un asset de sobra suele ser basura de un renombrado a medias.
+            for nombre in sorted(os.listdir(destino)):
+                if nombre.endswith((".png", ".wav")) and not os.path.isfile(os.path.join(tmp, nombre)):
+                    rel = os.path.join(rel_dir, nombre).replace("\\", "/")
+                    fallos.append(f"{rel}: versionado pero el generador ya no lo produce")
+    return revisados
+
+
+def main() -> int:
+    fallos: list[str] = []
+    revisados = 0
+
+    print("== Verificacion de assets de los laboratorios ==")
+    for lab in generar_assets.LABS:
+        n = _verificar_lab(lab, fallos)
+        print(f"  {lab}: {n} asset(s) comparados")
+        revisados += n
+
     print(f"Assets comparados: {revisados}")
 
     if fallos:

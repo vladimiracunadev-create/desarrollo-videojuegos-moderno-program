@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: 🗺️ Roadmap del programa
-    url: https://github.com/vladimiracunadev-create/desarrollo-videojuegos-moderno-program/blob/main/ROADMAP.md
+    url: https://github.com/vladimiracunadev-create/modern-gamedev-program/blob/main/ROADMAP.md
     about: Revisa qué partes están construidas y cuáles vienen antes de proponer contenido.
   - name: 🤝 Guía de contribución
-    url: https://github.com/vladimiracunadev-create/desarrollo-videojuegos-moderno-program/blob/main/CONTRIBUTING.md
+    url: https://github.com/vladimiracunadev-create/modern-gamedev-program/blob/main/CONTRIBUTING.md
     about: Formato de las clases y comprobaciones locales antes de abrir un PR.

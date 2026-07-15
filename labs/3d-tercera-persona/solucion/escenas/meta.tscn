@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3]
+
+; El portal de salida: un cilindro de radio 1 y alto 1 que el mundo escala para
+; cubrir todas las celdas 'F' del mapa.
+
+[sub_resource type="CylinderShape3D" id="Cil_col"]
+height = 1.0
+radius = 1.0
+
+[sub_resource type="CylinderMesh" id="Cil_malla"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_portal"]
+transparency = 1
+albedo_color = Color(0.95, 0.75, 0.2, 0.35)
+emission_enabled = true
+emission = Color(0.95, 0.75, 0.2, 1)
+emission_energy_multiplier = 0.6
+
+[node name="Meta" type="Area3D"]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("Cil_col")
+
+[node name="Malla" type="MeshInstance3D" parent="."]
+mesh = SubResource("Cil_malla")
+surface_material_override/0 = SubResource("Mat_portal")

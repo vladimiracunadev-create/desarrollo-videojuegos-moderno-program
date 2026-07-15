@@ -4,6 +4,8 @@
 
 **22 clases** · rango 086–107 · El pipeline de render moderno y el lenguaje de shaders de Godot: vertex/fragment, texturas, iluminación, PBR, normal mapping, post-procesado, agua, partículas GPU, instancing y NPR
 
+> 🧪 **Laboratorio ejecutable:** esta parte tiene un proyecto Godot real — [`labs/shaders`](../../labs/shaders/README.md) — una galería de shaders con versión `inicio/` (para completar) y `solucion/` (referencia), verificada en CI.
+
 **Fuentes de referencia de esta parte:**
 
 - Tomas Akenine-Möller, Eric Haines et al., *Real-Time Rendering* (4ª ed., CRC Press).

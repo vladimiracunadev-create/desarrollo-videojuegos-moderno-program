@@ -2,6 +2,11 @@
 
 > Parte: **2 — Desarrollo 3D: motores, escenas y transformaciones** · Fuente: *Documentación oficial de Godot 4 — Third-person camera con SpringArm3D y Navigation*
 > ⏱️ Duración estimada: **90 min** · Nivel: **Intermedio**
+>
+> 🧪 **Proyecto de referencia:** este capstone tiene un laboratorio ejecutable en
+> [`labs/3d-tercera-persona`](../../../labs/3d-tercera-persona/README.md): abre `inicio/` para construirlo tú
+> (con `TODO` guiados) o `solucion/` para ver la implementación completa y jugable.
+> Ambos se verifican en CI con Godot headless.
 
 ---
 

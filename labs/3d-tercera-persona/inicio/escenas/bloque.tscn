@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3]
+
+; Una celda del relieve: un cubo de 1x1x1 que el mundo ESCALA al vuelo.
+; Se escala el nodo, nunca la malla: una PrimitiveMesh modificada en runtime se
+; rehace entera cada vez, y aquí hay cientos de bloques.
+
+[sub_resource type="BoxShape3D" id="Box_col"]
+size = Vector3(1, 1, 1)
+
+[sub_resource type="BoxMesh" id="Box_malla"]
+size = Vector3(1, 1, 1)
+
+[node name="Bloque" type="StaticBody3D"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("Box_col")
+
+[node name="Malla" type="MeshInstance3D" parent="."]
+mesh = SubResource("Box_malla")

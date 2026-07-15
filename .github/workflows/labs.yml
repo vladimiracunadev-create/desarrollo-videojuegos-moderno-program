@@ -5,12 +5,14 @@ on:
     paths:
       - "labs/**"
       - "scripts/generar_assets.py"
+      - "scripts/verificar_assets.py"
       - ".github/workflows/labs.yml"
   push:
     branches: ["main"]
     paths:
       - "labs/**"
       - "scripts/generar_assets.py"
+      - "scripts/verificar_assets.py"
       - ".github/workflows/labs.yml"
   workflow_dispatch:
 
@@ -26,14 +28,27 @@ env:
 
 jobs:
   godot:
-    name: ${{ matrix.proyecto }} — importar, compilar y arrancar
+    name: ${{ matrix.lab }} · ${{ matrix.proyecto }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        # Se validan los dos: la solución de referencia y el proyecto de partida
-        # (el alumno debe poder abrir 'inicio' y que arranque sin errores).
+        # Cada lab se valida en sus dos versiones: la solución de referencia y
+        # el proyecto de partida (el alumno debe poder abrir 'inicio' y que
+        # arranque sin errores).
+        lab: [plataformas-2d, 3d-tercera-persona, shaders]
         proyecto: [solucion, inicio]
+        # 'marcador' es la prueba POSITIVA de cada lab: la línea que el proyecto
+        # tiene que imprimir para demostrar que no solo arrancó, sino que llegó a
+        # construir lo suyo. Sin esto, un proyecto que no hace nada pasaría el
+        # test solo por no fallar.
+        include:
+          - lab: plataformas-2d
+            marcador: "Nivel construido:"
+          - lab: 3d-tercera-persona
+            marcador: "Nivel construido:"
+          - lab: shaders
+            marcador: "Galería construida:"
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -58,44 +73,55 @@ jobs:
           # Pillow no produce los mismos bytes entre versiones/plataformas.
           python scripts/verificar_assets.py
 
-      - name: Importar el proyecto (valida escenas y recursos)
+      - name: Importar el proyecto (valida escenas, recursos y shaders)
         run: |
           set -euo pipefail
-          PROY="labs/plataformas-2d/${{ matrix.proyecto }}"
+          PROY="labs/${{ matrix.lab }}/${{ matrix.proyecto }}"
           # El primer import puede devolver != 0 aunque tenga éxito; lo que importa
           # es que no aparezcan errores en el log.
           godot --headless --path "$PROY" --import 2>&1 | tee import.log || true
-          if grep -E "SCRIPT ERROR|Parse Error|ERROR:|Failed loading resource" import.log; then
-            echo "::error::el proyecto ${{ matrix.proyecto }} no importa limpio"
+          if grep -E "SCRIPT ERROR|Parse Error|ERROR:|SHADER ERROR|Failed loading resource" import.log; then
+            echo "::error::${{ matrix.lab }}/${{ matrix.proyecto }} no importa limpio"
             exit 1
           fi
           echo "Import limpio ✔"
 
-      - name: "Arrancar el juego headless (smoke test: ejecuta _ready y varios frames)"
+      - name: "Arrancar headless (smoke test: ejecuta _ready y varios frames)"
         run: |
           set -euo pipefail
-          PROY="labs/plataformas-2d/${{ matrix.proyecto }}"
-          godot --headless --path "$PROY" --quit-after 120 2>&1 | tee run.log || true
-          if grep -E "SCRIPT ERROR|Parse Error|ERROR:|Failed loading resource|Cannot call method" run.log; then
-            echo "::error::el proyecto ${{ matrix.proyecto }} lanza errores en tiempo de ejecución"
+          PROY="labs/${{ matrix.lab }}/${{ matrix.proyecto }}"
+          MARCADOR="${{ matrix.marcador }}"
+          # Si un lab nuevo se añade a la matriz y se olvida su 'include', el
+          # marcador llega vacío y 'grep -q ""' daría por bueno cualquier log.
+          # Mejor fallar aquí que tener una prueba positiva que no prueba nada.
+          if [ -z "$MARCADOR" ]; then
+            echo "::error::${{ matrix.lab }}: falta 'marcador' en el include de la matriz"
             exit 1
           fi
-          # Prueba POSITIVA: no basta con que no falle, el nivel debe construirse.
-          if ! grep -q "Nivel construido:" run.log; then
-            echo "::error::el nivel no llegó a construirse (falta el resumen de mundo.gd)"
+          godot --headless --path "$PROY" --quit-after 300 2>&1 | tee run.log || true
+          # Godot compila el GLSL aunque no haya GPU: un shader roto sale aquí.
+          if grep -E "SCRIPT ERROR|Parse Error|ERROR:|SHADER ERROR|Failed loading resource|Cannot call method" run.log; then
+            echo "::error::${{ matrix.lab }}/${{ matrix.proyecto }} lanza errores en tiempo de ejecución"
+            exit 1
+          fi
+          # Prueba POSITIVA: no basta con que no falle, tiene que construirse.
+          if ! grep -qF "$MARCADOR" run.log; then
+            echo "::error::${{ matrix.lab }}/${{ matrix.proyecto }}: falta el marcador '$MARCADOR'"
             cat run.log
             exit 1
           fi
-          grep "Nivel construido:" run.log
-          echo "Arranque y construcción del nivel verificados ✔"
+          grep -F "$MARCADOR" run.log
+          echo "Arranque y construcción verificados ✔"
 
       - name: Resumen
         if: always()
         run: |
+          PROY="labs/${{ matrix.lab }}/${{ matrix.proyecto }}"
           {
-            echo "### 🎮 Lab plataformas-2d · ${{ matrix.proyecto }}"
+            echo "### 🎮 Lab ${{ matrix.lab }} · ${{ matrix.proyecto }}"
             echo ""
             echo "- Godot: **${GODOT_VERSION}** (headless)"
-            echo "- Scripts GDScript: **$(find labs/plataformas-2d/${{ matrix.proyecto }} -name '*.gd' | wc -l)**"
-            echo "- Escenas: **$(find labs/plataformas-2d/${{ matrix.proyecto }} -name '*.tscn' | wc -l)**"
+            echo "- Scripts GDScript: **$(find "$PROY" -name '*.gd' | wc -l)**"
+            echo "- Escenas: **$(find "$PROY" -name '*.tscn' | wc -l)**"
+            echo "- Shaders: **$(find "$PROY" -name '*.gdshader' | wc -l)**"
           } >> "$GITHUB_STEP_SUMMARY"

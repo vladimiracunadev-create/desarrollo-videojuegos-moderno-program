@@ -1,6 +1,6 @@
 # 📖 Glosario
 
-> [⬅️ Volver al programa](../README.md) · [📚 Índice completo](../classes/README.md) · [🔎 Buscador](https://vladimiracunadev-create.github.io/desarrollo-videojuegos-moderno-program/buscar.html)
+> [⬅️ Volver al programa](../README.md) · [📚 Índice completo](../classes/README.md) · [🔎 Buscador](https://vladimiracunadev-create.github.io/modern-gamedev-program/buscar.html)
 
 **1994 términos** recopilados automáticamente de las secciones *Definiciones y características* de las 292 clases. Cada término enlaza a la clase donde se explica en contexto.
 

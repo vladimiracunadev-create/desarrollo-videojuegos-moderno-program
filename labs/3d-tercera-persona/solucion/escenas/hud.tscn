@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="Style_aviso"]
+bg_color = Color(0, 0, 0, 0.65)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_script")
+
+[node name="Margen" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+
+[node name="Datos" type="VBoxContainer" parent="Margen"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Cristales" type="Label" parent="Margen/Datos"]
+layout_mode = 2
+text = "Cristales: 0 / 0"
+
+[node name="Tiempo" type="Label" parent="Margen/Datos"]
+layout_mode = 2
+text = "Tiempo: 0.0 s"
+
+[node name="Pista" type="Label" parent="Margen/Datos"]
+layout_mode = 2
+text = "Recoge todos los cristales"
+
+[node name="Aviso" type="Control" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Centro" type="CenterContainer" parent="Aviso"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Texto" type="Label" parent="Aviso/Centro"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("Style_aviso")
+text = "Fin"
+horizontal_alignment = 1
+vertical_alignment = 1

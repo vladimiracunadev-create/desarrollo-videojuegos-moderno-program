@@ -1,6 +1,6 @@
 # 🧭 Rutas guiadas por rol
 
-> [⬅️ Volver al programa](../README.md) · [📚 Índice completo](../classes/README.md) · [✅ Mi progreso](https://vladimiracunadev-create.github.io/desarrollo-videojuegos-moderno-program/autoevaluaciones/progreso.html)
+> [⬅️ Volver al programa](../README.md) · [📚 Índice completo](../classes/README.md) · [✅ Mi progreso](https://vladimiracunadev-create.github.io/modern-gamedev-program/autoevaluaciones/progreso.html)
 
 El programa tiene **292 clases**; **no todas son para todos a la vez**. Estas rutas ordenan el recorrido según el rol al que apuntas: qué partes hacer, en qué orden y con qué laboratorio practicar.
 
@@ -17,7 +17,7 @@ El rol más demandado: haces que el juego *se sienta* bien.
 1. 📚 **Parte 0** — Fundamentos (001–025) · foco en vectores, game loop, POO y patrones
 2. 📚 **Parte 1** — Motores 2D (026–045) · 🧪 [Lab plataformas 2D](../labs/plataformas-2d/README.md)
 3. 🎯 **Hito**: un plataformas propio con buen *game feel*, exportado y jugable
-4. 📚 **Parte 2** — 3D (046–067) · controladores en 1ª y 3ª persona
+4. 📚 **Parte 2** — 3D (046–067) · 🧪 [Lab 3D en tercera persona](../labs/3d-tercera-persona/README.md)
 5. 📚 **Parte 3** — Física aplicada (068–085) · colisiones, steering, easing
 6. 📚 **Parte 5** — IA de juegos (108–125) · FSM, behavior trees, pathfinding
 7. 📚 **Parte 8** — Game design (156–171) · para entender *por qué* diseñas así
@@ -29,8 +29,8 @@ Shaders, rendering y el *look* del juego.
 
 1. 📚 **Parte 0** (001–025) · foco en matemáticas (004–006), pipeline (017), color y texturas (019)
 2. 📚 **Parte 1** (026–045) · base práctica del motor
-3. 📚 **Parte 2** (046–067) · escenas 3D, luces, materiales
-4. 📚 **Parte 4** — Gráficos y shaders (086–107) · **el núcleo de esta ruta**
+3. 📚 **Parte 2** (046–067) · escenas 3D, luces, materiales · 🧪 [Lab 3D](../labs/3d-tercera-persona/README.md)
+4. 📚 **Parte 4** — Gráficos y shaders (086–107) · **el núcleo de esta ruta** · 🧪 [Lab shaders](../labs/shaders/README.md)
 5. 🎯 **Hito**: un set de shaders y post-procesado propio (clase 107)
 6. 📚 **Parte 3** (068–085) · matemáticas de la que se apoya el render
 7. 📚 **Parte 14** — Optimización (240–254) · coste en GPU, draw calls
@@ -99,6 +99,6 @@ Nicho en crecimiento con exigencias técnicas altas.
 ## 💡 Cómo usar una ruta
 
 - **Sigue el orden dentro de la ruta**, no el número de clase. Las rutas saltan partes a propósito.
-- **Marca tu avance** en el [seguimiento de progreso](https://vladimiracunadev-create.github.io/desarrollo-videojuegos-moderno-program/autoevaluaciones/progreso.html).
-- **Comprueba que lo dominas** con la [autoevaluación](https://vladimiracunadev-create.github.io/desarrollo-videojuegos-moderno-program/autoevaluaciones/quiz.html) de cada parte antes de pasar a la siguiente.
+- **Marca tu avance** en el [seguimiento de progreso](https://vladimiracunadev-create.github.io/modern-gamedev-program/autoevaluaciones/progreso.html).
+- **Comprueba que lo dominas** con la [autoevaluación](https://vladimiracunadev-create.github.io/modern-gamedev-program/autoevaluaciones/quiz.html) de cada parte antes de pasar a la siguiente.
 - **Haz los hitos 🎯**. Una parte "leída" no cuenta; una parte con algo construido, sí.

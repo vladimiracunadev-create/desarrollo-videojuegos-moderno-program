@@ -4,6 +4,8 @@
 
 **22 clases** · rango 046–067 · El salto a las tres dimensiones con Godot 4: escenas 3D, transformaciones, cámaras, iluminación, controladores en primera y tercera persona, física, animación y navegación
 
+> 🧪 **Laboratorio ejecutable:** esta parte tiene un proyecto Godot real — [`labs/3d-tercera-persona`](../../labs/3d-tercera-persona/README.md) — con versión `inicio/` (para completar) y `solucion/` (referencia jugable), verificado en CI.
+
 **Fuentes de referencia de esta parte:**
 
 - Documentación oficial de [Godot Engine 4.x — 3D](https://docs.godotengine.org/en/stable/tutorials/3d/index.html).

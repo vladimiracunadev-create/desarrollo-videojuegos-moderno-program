@@ -2,6 +2,11 @@
 
 > Parte: **4 — Gráficos, shaders y rendering moderno** · Fuente: *Documentación de shaders y post-procesado de Godot 4 + síntesis de las clases 086–106*
 > ⏱️ Duración estimada: **60 min** · Nivel: **Avanzado**
+>
+> 🧪 **Proyecto de referencia:** este capstone tiene un laboratorio ejecutable en
+> [`labs/shaders`](../../../labs/shaders/README.md): abre `inicio/` para escribir tú los shaders
+> (con `TODO` guiados) o `solucion/` para ver el set completo con sus uniforms en vivo.
+> Ambos se verifican en CI con Godot headless.
 
 ---
 

@@ -8,7 +8,7 @@ Dos herramientas para saber si de verdad estás aprendiendo, no solo leyendo.
 
 **90 preguntas** — una batería de 5 por cada una de las 18 partes. Cada pregunta tiene 4 opciones y, al corregir, la **explicación de por qué** la respuesta correcta lo es.
 
-👉 **[Hacer la autoevaluación](https://vladimiracunadev-create.github.io/desarrollo-videojuegos-moderno-program/autoevaluaciones/quiz.html)**
+👉 **[Hacer la autoevaluación](https://vladimiracunadev-create.github.io/modern-gamedev-program/autoevaluaciones/quiz.html)**
 
 Las preguntas están escritas a partir del contenido real de las clases, y muchos distractores son **errores que la gente comete de verdad** (los mismos que documenta la sección "Errores comunes" de cada clase).
 
@@ -22,7 +22,7 @@ Las preguntas están escritas a partir del contenido real de las clases, y mucho
 
 Marca las **292 clases** conforme las completes y mira tu avance por parte y global.
 
-👉 **[Ver mi progreso](https://vladimiracunadev-create.github.io/desarrollo-videojuegos-moderno-program/autoevaluaciones/progreso.html)**
+👉 **[Ver mi progreso](https://vladimiracunadev-create.github.io/modern-gamedev-program/autoevaluaciones/progreso.html)**
 
 > **Privacidad:** todo ocurre en tu navegador. Las respuestas y el progreso se guardan en `localStorage` y **no se envían a ningún servidor**. Si borras los datos del navegador, se pierden.
 

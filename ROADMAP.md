@@ -13,28 +13,33 @@ es la base y el primer entregable.
 
 **Las 18 partes del currículo escrito están completas.**
 
-## Fase 2 — Laboratorios ejecutables (planificada)
+## Fase 2 — Laboratorios ejecutables (en curso)
 
 - [ ] Proyecto base de Godot por parte, versionado y clonable.
-- [ ] Lab **plataformas 2D** completo (Parte 1) como repositorio jugable.
-- [ ] Lab **3D third-person controller** (Parte 2).
-- [ ] Lab **shaders** con ejemplos ejecutables (Parte 4).
+- [x] Lab **[plataformas 2D](labs/plataformas-2d/README.md)** completo (Parte 1) como repositorio jugable.
+- [x] Lab **[3D third-person controller](labs/3d-tercera-persona/README.md)** (Parte 2).
+- [x] Lab **[shaders](labs/shaders/README.md)** con ejemplos ejecutables (Parte 4).
 - [ ] Lab **multijugador** cliente-servidor mínimo (Parte 7).
 
-## Fase 3 — Material complementario (planificada)
+Cada lab viene en versión `inicio/` (con `TODO`) y `solucion/`, y las dos se verifican en
+CI con Godot headless. Ver **[labs/](labs/README.md)**.
 
-- [ ] Guías **PDF** imprimibles por clase.
+## Fase 3 — Material complementario (en curso)
+
+- [x] Guías **PDF** imprimibles por clase (`scripts/generar_material.py`, en B/N para imprimir).
 - [ ] Presentaciones **PPTX** por clase.
-- [ ] Assets de práctica (sprites, tilesets, sonidos con licencia libre).
+- [x] Assets de práctica (sprites, tilesets, texturas y sonidos **CC0 generados por código**:
+      `scripts/generar_assets.py`).
 
-## Fase 4 — Portal y evaluación (planificada)
+## Fase 4 — Portal y evaluación ✅ (completa)
 
-- [ ] Sitio web navegable del currículo (GitHub Pages).
-- [ ] Autoevaluaciones interactivas por parte.
-- [ ] Seguimiento de progreso de las clases (localStorage).
-- [ ] Rutas guiadas por rol.
+- [x] Sitio web navegable del currículo (GitHub Pages: `scripts/generar_sitio.py` + `deploy-pages.yml`).
+- [x] Autoevaluaciones interactivas por parte (`autoevaluaciones/quiz.html`).
+- [x] Seguimiento de progreso de las clases (localStorage: `autoevaluaciones/progreso.html`).
+- [x] Rutas guiadas por rol (`rutas/README.md`).
 
 ---
 
-**Prioridad actual:** completar Partes 0 y 1 con máxima calidad antes de escalar al resto.
+**Prioridad actual:** cerrar la Fase 2 con el lab de **multijugador** (Parte 7), el único que
+queda por construir.
 ¿Ideas o mejoras? Abre un *issue*.
