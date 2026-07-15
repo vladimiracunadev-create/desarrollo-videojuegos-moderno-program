@@ -28,6 +28,7 @@ INCLUIR_TOP = ["README.md", "ROADMAP.md", "CONTRIBUTING.md", "SECURITY.md",
                "labs/README.md", "labs/plataformas-2d/README.md",
                "labs/3d-tercera-persona/README.md", "labs/shaders/README.md",
                "labs/multijugador/README.md", "labs/ia-enemigo/README.md",
+               "labs/ui-accesible/README.md",
                "rutas/README.md", "autoevaluaciones/README.md", "glosario/README.md"]
 
 LINK_MD = re.compile(r"\]\(([^)]+?)\.md((?:#[^)]*)?)\)")

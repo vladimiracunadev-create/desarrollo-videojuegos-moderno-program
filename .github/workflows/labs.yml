@@ -36,7 +36,7 @@ jobs:
         # Cada lab se valida en sus dos versiones: la solución de referencia y
         # el proyecto de partida (el alumno debe poder abrir 'inicio' y que
         # arranque sin errores).
-        lab: [plataformas-2d, 3d-tercera-persona, shaders, multijugador, ia-enemigo]
+        lab: [plataformas-2d, 3d-tercera-persona, shaders, multijugador, ia-enemigo, ui-accesible]
         proyecto: [solucion, inicio]
         # 'marcador' es la prueba POSITIVA de cada lab: la línea que el proyecto
         # tiene que imprimir para demostrar que no solo arrancó, sino que llegó a
@@ -55,6 +55,8 @@ jobs:
             marcador: "Servidor escuchando:"
           - lab: ia-enemigo
             marcador: "Nivel construido:"
+          - lab: ui-accesible
+            marcador: "UI construida:"
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -83,8 +85,16 @@ jobs:
         run: |
           set -euo pipefail
           PROY="labs/${{ matrix.lab }}/${{ matrix.proyecto }}"
-          # El primer import puede devolver != 0 aunque tenga éxito; lo que importa
-          # es que no aparezcan errores en el log.
+          # Se importa DOS veces y solo se juzga la segunda, y no es por vicio:
+          # el primer import es el que genera los artefactos derivados (las
+          # traducciones compiladas del lab de UI, por ejemplo), pero el motor
+          # ya intenta cargarlos al arrancar — así que en un checkout limpio la
+          # primera pasada se queja de archivos que ella misma está creando. La
+          # segunda parte de un proyecto ya importado, que es como lo verá quien
+          # abra el editor, y esa sí tiene que estar impecable.
+          godot --headless --path "$PROY" --import > /dev/null 2>&1 || true
+          # El import puede devolver != 0 aunque tenga éxito; lo que importa es
+          # que no aparezcan errores en el log.
           godot --headless --path "$PROY" --import 2>&1 | tee import.log || true
           if grep -E "SCRIPT ERROR|Parse Error|ERROR:|SHADER ERROR|Failed loading resource" import.log; then
             echo "::error::${{ matrix.lab }}/${{ matrix.proyecto }} no importa limpio"
@@ -370,3 +380,83 @@ jobs:
             exit 1
           fi
           echo "El árbol decide de verdad ✔"
+
+  # La UI de Godot se calcula en la CPU: el layout, el foco y lo que ocupa un
+  # texto se resuelven sin GPU — solo el dibujado necesita tarjeta. Así que un
+  # runner sin pantalla sí puede responder a lo que importa: si hay foco, si la
+  # navegación da la vuelta, si cambia el idioma de TODA la UI, y si el texto al
+  # 200 % sigue cabiendo. Esto último es lo que el capstone (clase 199) llama su
+  # corazón, y aquí es un assert.
+  #
+  # Lo que NO comprueba: si la UI se ve bonita. Eso lo juzga una persona.
+  #
+  # Solo sobre 'solucion': 'inicio' tiene los TODO sin hacer y su menú ni siquiera
+  # tiene foco. Es lo esperado, no un fallo.
+  ui:
+    name: ui-accesible · prueba de la interfaz
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          lfs: true
+
+      - name: Descargar Godot ${{ env.GODOT_VERSION }} (headless)
+        run: |
+          set -euo pipefail
+          URL="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          curl -sSfL "$URL" -o godot.zip
+          unzip -q godot.zip
+          mv "Godot_v${GODOT_VERSION}-stable_linux.x86_64" /usr/local/bin/godot
+          chmod +x /usr/local/bin/godot
+
+      - name: Importar
+        run: |
+          set -euo pipefail
+          # Doble import: la primera pasada compila el CSV de traducciones que el
+          # propio project.godot referencia (ver el job de arriba).
+          godot --headless --path labs/ui-accesible/solucion --import > /dev/null 2>&1 || true
+          godot --headless --path labs/ui-accesible/solucion --import > import.log 2>&1 || true
+          if grep -E "SCRIPT ERROR|Parse Error|ERROR:" import.log; then
+            echo "::error::el lab de UI no importa limpio"
+            exit 1
+          fi
+
+      - name: Probar la interfaz
+        run: |
+          set -euo pipefail
+          godot --headless --path labs/ui-accesible/solucion res://escenas/verificar.tscn 2>&1 | tee ui.log || true
+
+          if grep -E "SCRIPT ERROR|Parse Error|ERROR:|Cannot call method" ui.log; then
+            echo "::error::el lab de UI lanza errores en tiempo de ejecución"
+            exit 1
+          fi
+
+          # El verificador cuenta lo suyo; aquí se exige que haya corrido entero
+          # y sin un solo fallo.
+          resumen=$(sed -n 's/^== \([0-9]*\) comprobaciones, \([0-9]*\) fallo.*/\1 \2/p' ui.log | head -1)
+          hechas=$(echo "$resumen" | cut -d' ' -f1)
+          fallos=$(echo "$resumen" | cut -d' ' -f2)
+          hechas=${hechas:-0}
+          fallos=${fallos:-99}
+
+          if [ "$hechas" -lt 15 ]; then
+            echo "::error::solo se ejecutaron $hechas comprobaciones (esperaba 15+): ¿se cortó a media prueba?"
+            cat ui.log
+            exit 1
+          fi
+          if [ "$fallos" -ne 0 ]; then
+            echo "::error::$fallos comprobación(es) de UI han fallado"
+            cat ui.log
+            exit 1
+          fi
+
+          echo "comprobaciones: $hechas · fallos: $fallos"
+          {
+            echo "### 🖥️ Prueba de la interfaz"
+            echo ""
+            echo "- Comprobaciones: **$hechas**, fallos: **$fallos**"
+            echo "- Foco y navegación cíclica · idioma en runtime (incluidos textos por código)"
+            echo "- Texto al 100/150/200 % sin recortes · 16:9, 21:9 y 4:3"
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "La UI aguanta ✔"

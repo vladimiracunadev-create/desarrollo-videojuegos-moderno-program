@@ -4,6 +4,8 @@
 
 **12 clases** · rango 188–199 · Interfaces que se entienden y llegan a todos: el sistema Control de Godot, theming, HUD, menús, UI responsive, accesibilidad y localización
 
+> 🧪 **Laboratorio ejecutable:** esta parte tiene un proyecto Godot real — [`labs/ui-accesible`](../../labs/ui-accesible/README.md) — con versión `inicio/` (para completar) y `solucion/` (referencia), verificado en CI: la UI de Godot se calcula en la CPU, así que se puede medir sin pantalla.
+
 **Fuentes de referencia de esta parte:**
 
 - Celia Hodent, *The Gamer's Brain: How Neuroscience and UX Can Impact Video Game Design*.

@@ -2,6 +2,11 @@
 
 > Parte: **10 — UI/UX, accesibilidad y localización** · Fuente: *Documentación de Godot 4 (UI, i18n, accesibilidad); Game Accessibility Guidelines*
 > ⏱️ Duración estimada: **110 min** · Nivel: **Intermedio**
+>
+> 🧪 **Proyecto de referencia:** este capstone tiene un laboratorio ejecutable en
+> [`labs/ui-accesible`](../../../labs/ui-accesible/README.md): abre `inicio/` para construirlo tú
+> (con `TODO` guiados) o `solucion/` para ver la implementación completa.
+> La CI comprueba el foco, el cambio de idioma y que el texto al 200 % no se recorte.
 
 ---
 

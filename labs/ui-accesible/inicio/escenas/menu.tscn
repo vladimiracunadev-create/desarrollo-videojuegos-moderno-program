@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_s"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s")
+
+[node name="Fondo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11, 0.1, 0.16, 1)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Caja" type="VBoxContainer" parent="Centro"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Titulo" type="Label" parent="Centro/Caja"]
+layout_mode = 2
+text = "MENU_TITULO"
+horizontal_alignment = 1
+
+[node name="BtnJugar" type="Button" parent="Centro/Caja"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnSalir")
+focus_neighbor_bottom = NodePath("../BtnOpciones")
+text = "MENU_JUGAR"
+
+[node name="BtnOpciones" type="Button" parent="Centro/Caja"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnJugar")
+focus_neighbor_bottom = NodePath("../BtnSalir")
+text = "MENU_OPCIONES"
+
+[node name="BtnSalir" type="Button" parent="Centro/Caja"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnOpciones")
+focus_neighbor_bottom = NodePath("../BtnJugar")
+text = "MENU_SALIR"

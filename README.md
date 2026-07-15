@@ -25,7 +25,7 @@
 
 > 🧭 **Estado del programa.** **Programa completo: las 18 partes (292 clases) están construidas** — de los fundamentos, el 2D y el 3D a física, shaders, IA, audio, multijugador, game design, arte, UI, plataformas, web, VR/AR, optimización, tooling, producción y carrera profesional. Cada clase incluye laboratorio guiado paso a paso, ejercicios y reto verificable.
 >
-> **Qué está verificado por una máquina y qué no**, para que sepas de qué te fías: los **5 [laboratorios](labs/README.md)** son proyectos Godot completos que la CI importa, arranca y pone a prueba en cada push. El código que vive dentro de los README de clase está escrito y revisado a mano, pero **no se ejecuta en CI**: es material de lectura y guía, no un proyecto que se abra. Si el badge de Labs está verde, lo que garantiza son los laboratorios.
+> **Qué está verificado por una máquina y qué no**, para que sepas de qué te fías: los **6 [laboratorios](labs/README.md)** son proyectos Godot completos que la CI importa, arranca y pone a prueba en cada push. El código que vive dentro de los README de clase está escrito y revisado a mano, pero **no se ejecuta en CI**: es material de lectura y guía, no un proyecto que se abra. Si el badge de Labs está verde, lo que garantiza son los laboratorios.
 
 ## 🎯 Qué es esto
 
@@ -49,6 +49,7 @@ No solo se lee: se juega. El programa incluye **proyectos Godot reales** que se 
 - 🎨 **[Shaders](labs/shaders/README.md)** — la galería de la Parte 4: siete shaders (UV, ondas, disolución, contorno, agua, cel shading y CRT) con sus uniforms editables en marcha.
 - 🌐 **[Multijugador](labs/multijugador/README.md)** — la arena en red de la Parte 7: servidor autoritativo, predicción, reconciliación e interpolación, verificado en CI levantando un servidor y tres clientes de verdad.
 - 🧠 **[IA de enemigos](labs/ia-enemigo/README.md)** — el enemigo de la Parte 5: behavior tree, cono de visión, memoria y pathfinding A\*. La CI no comprueba que arranque, sino que **decide**: patrulla, te ve, te persigue, te pierde y va a buscarte.
+- 🖥️ **[UI accesible](labs/ui-accesible/README.md)** — la interfaz de la Parte 10: idioma cambiable en marcha, texto al 200 % sin recortes y navegación completa con teclado. La UI se calcula en la CPU, así que la CI puede medirla.
 
 Los assets son **CC0 generados por código** ([`scripts/generar_assets.py`](scripts/generar_assets.py)) y cada push **verifica los proyectos con Godot headless** (importa, compila y arranca). **No hay un lab por clase, y es a propósito**: los tiene cada parte que termina en algo ejecutable. Las de arte, producción o carrera terminan en un entregable, no en un `.exe` — el porqué, en **[labs/](labs/README.md)**.
 

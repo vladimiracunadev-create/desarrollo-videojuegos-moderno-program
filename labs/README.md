@@ -20,22 +20,25 @@ Ambas versiones se **verifican en CI con Godot headless** en cada push: se impor
 | [**Shaders**](shaders/README.md) | [Parte 4](../classes/parte-4-graficos-shaders-y-rendering-moderno/README.md) (clases 086–107) | Una galería de siete shaders con sus uniforms editables en vivo: UV, ondas, disolución, contorno, agua, cel shading y post-procesado CRT. |
 | [**Multijugador**](multijugador/README.md) | [Parte 7](../classes/parte-7-multijugador-y-networking/README.md) (clases 138–155) | Una arena en red con servidor autoritativo: predicción, reconciliación, interpolación de remotos y validación anti-cheat, sobre ENet puro. |
 | [**IA de enemigos**](ia-enemigo/README.md) | [Parte 5](../classes/parte-5-inteligencia-artificial-para-juegos/README.md) (clases 108–125) | Un enemigo con behavior tree, cono de visión, memoria y pathfinding A\*: patrulla, te ve, te persigue, te pierde y va a buscarte. |
+| [**UI accesible**](ui-accesible/README.md) | [Parte 10](../classes/parte-10-ui-ux-accesibilidad-y-localizacion/README.md) (clases 188–199) | Menú, HUD y opciones que cambian de idioma en marcha, aguantan el texto al 200 % y se navegan enteros con el teclado. |
 
-## 🎯 Por qué hay cinco labs y no dieciocho
+## 🎯 Por qué hay seis labs y no dieciocho
 
 Porque un laboratorio solo tiene sentido cuando la parte **termina en algo que se ejecuta**, y no todas terminan en eso — ni deberían.
 
-- **Las partes de programación** (2D, 3D, shaders, IA, multijugador) terminan en un proyecto que corre. Ahí un lab es lo natural, y lo tienen.
+- **Las partes de programación** (2D, 3D, shaders, IA, multijugador, UI) terminan en un proyecto que corre. Ahí un lab es lo natural, y lo tienen.
 - **Las partes de arte, game design, producción y carrera** terminan en un entregable que no es un ejecutable: un set de assets coherente, un documento de diseño, un presupuesto, un portfolio. Meterlas a la fuerza en un `project.godot` no enseñaría nada — su reto verificable está en la propia clase, y ahí se queda.
 - **Las que dependen de hardware o de servicios** (VR/AR, móvil y consolas, backends) no se pueden verificar en un servidor de CI sin visor, sin teléfono y sin cuenta. Prometer un lab verificado ahí sería mentir.
 
-Las que sí faltan y tienen sentido —**física** (Parte 3), **audio** (Parte 6), **UI/UX** (Parte 10) y **tooling** (Parte 15)— están en el [roadmap](../ROADMAP.md).
+Y hay un tercer caso, más sutil: **partes cuyo reto no se puede verificar aunque el código corra**. El capstone de **audio** (Parte 6) pide un *"ducking audible"*, que los sonidos *"suenen distintos"* y que una transición no tenga *"corte perceptible"*: cuatro de sus ocho criterios son juicios de oído, el driver headless no mezcla y `AudioStreamRandomizer` no dice qué eligió. Un lab de audio en CI verificaría que existe un bus llamado "Musica" — la contabilidad del sistema, no el sistema. **La CI es sorda**, y prometer un badge verde sobre audio adaptativo sería justo lo que aquí no se hace. Lo mismo con el capstone de **física** (Parte 3), cuyo criterio incluye un playtest humano.
+
+Las que faltan y sí tendrían sentido —**física** (Parte 3, con integradores propios en vez del solver), **audio** (Parte 6, la parte estructural) y **tooling** (Parte 15)— están en el [roadmap](../ROADMAP.md).
 
 ## 🔍 Qué garantiza el badge (y qué no)
 
 Conviene ser exacto, porque es la diferencia entre "está escrito" y "funciona":
 
-- **Los cinco laboratorios se ejecutan en CI** en cada push: se importan, se arrancan con Godot headless y se les exige una prueba positiva — que el nivel se construya, que los shaders compilen, que la red conecte, que la IA decida. Si el badge está verde, **este código funciona**.
+- **Los seis laboratorios se ejecutan en CI** en cada push: se importan, se arrancan con Godot headless y se les exige una prueba positiva — que el nivel se construya, que los shaders compilen, que la red conecte, que la IA decida, que la UI no se recorte. Si el badge está verde, **este código funciona**.
 - **El código dentro de los README de clase no se ejecuta en CI.** Está escrito y revisado a mano, y es material de lectura: fragmentos que ilustran una idea, muchos de ellos trozos de un archivo mayor. No son proyectos que se abran.
 
 Dicho de otra forma: el badge cubre los labs, no las 292 clases. Preferimos decirlo a que te lo encuentres.
