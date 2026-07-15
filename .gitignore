@@ -16,6 +16,9 @@ site/
 # que hace la CI de labs, y lo que hace el editor al abrir el proyecto). No se
 # versionan porque ningún asset de los labs usa ajustes de importación propios.
 *.import
+# Traducciones compiladas desde el CSV: mismo caso, las genera el import. Lo que
+# se versiona y se edita es el .csv.
+*.translation
 # Exportaciones/builds del juego.
 export.cfg
 export_presets.cfg

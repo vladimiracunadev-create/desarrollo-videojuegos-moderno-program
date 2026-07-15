@@ -1,0 +1,15 @@
+keys,es,en
+MENU_TITULO,Guardianes del Umbral,Wardens of the Threshold
+MENU_JUGAR,Jugar,Play
+MENU_OPCIONES,Opciones,Settings
+MENU_SALIR,Salir,Quit
+OPC_TITULO,Opciones,Settings
+OPC_IDIOMA,Idioma,Language
+OPC_ESCALA_TEXTO,Tamaño del texto,Text size
+OPC_SUBTITULOS,Subtítulos,Subtitles
+OPC_REMAPEO,Tecla de acción,Action key
+OPC_VOLVER,Volver,Back
+HUD_VIDAS,Vidas: {0},Lives: {0}
+HUD_PUNTOS,Puntos: {0},Score: {0}
+HUD_OBJETIVO,Llega a la salida antes de que amanezca,Reach the exit before dawn
+SUB_EJEMPLO,"— Vamos, no queda mucho para el amanecer.","— Come on, dawn is not far off."

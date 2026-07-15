@@ -21,6 +21,7 @@ es la base y el primer entregable.
 - [x] Lab **[shaders](labs/shaders/README.md)** con ejemplos ejecutables (Parte 4).
 - [x] Lab **[multijugador](labs/multijugador/README.md)** cliente-servidor mínimo (Parte 7).
 - [x] Lab **[IA de enemigos](labs/ia-enemigo/README.md)** con behavior tree, percepción y A* (Parte 5).
+- [x] Lab **[UI accesible y localizada](labs/ui-accesible/README.md)** (Parte 10).
 
 Cada lab viene en versión `inicio/` (con `TODO`) y `solucion/`, y las dos se verifican en
 CI con Godot headless. Ver **[labs/](labs/README.md)**.
@@ -41,9 +42,10 @@ CI con Godot headless. Ver **[labs/](labs/README.md)**.
 
 ---
 
-**Prioridad actual:** más laboratorios donde tengan sentido — **física** (Parte 3), **audio**
-(Parte 6), **UI/UX** (Parte 10) y **tooling** (Parte 15) — y las presentaciones **PPTX** de la
-Fase 3. No habrá un lab por parte: las de arte, producción y carrera terminan en un entregable
-que no es un ejecutable, y las de VR/AR y móvil no se pueden verificar sin hardware
-(ver [labs/](labs/README.md)).
+**Prioridad actual:** las presentaciones **PPTX** de la Fase 3, y los labs que aún tienen
+sentido: **física** (Parte 3, con integradores propios en vez del solver, que no es
+reproducible), **audio** (Parte 6, solo su parte estructural: su capstone se juzga de oído) y
+**tooling** (Parte 15). No habrá un lab por parte: las de arte, producción y carrera terminan
+en un entregable que no es un ejecutable, y las de VR/AR y móvil no se pueden verificar sin
+hardware (ver [labs/](labs/README.md)).
 ¿Ideas o mejoras? Abre un *issue*.

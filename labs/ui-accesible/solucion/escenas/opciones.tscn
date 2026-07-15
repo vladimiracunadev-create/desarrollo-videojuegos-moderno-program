@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/opciones.gd" id="1_s"]
+
+[node name="Opciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s")
+
+[node name="Fondo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11, 0.1, 0.16, 1)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Caja" type="VBoxContainer" parent="Centro"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Titulo" type="Label" parent="Centro/Caja"]
+layout_mode = 2
+text = "OPC_TITULO"
+horizontal_alignment = 1
+
+[node name="FilaIdioma" type="HBoxContainer" parent="Centro/Caja"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Etiqueta" type="Label" parent="Centro/Caja/FilaIdioma"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OPC_IDIOMA"
+
+[node name="Selector" type="OptionButton" parent="Centro/Caja/FilaIdioma"]
+layout_mode = 2
+
+[node name="FilaEscala" type="HBoxContainer" parent="Centro/Caja"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Etiqueta" type="Label" parent="Centro/Caja/FilaEscala"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OPC_ESCALA_TEXTO"
+
+[node name="Slider" type="HSlider" parent="Centro/Caja/FilaEscala"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Valor" type="Label" parent="Centro/Caja/FilaEscala"]
+layout_mode = 2
+text = "100%"
+
+[node name="FilaSubs" type="HBoxContainer" parent="Centro/Caja"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Etiqueta" type="Label" parent="Centro/Caja/FilaSubs"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OPC_SUBTITULOS"
+
+[node name="Check" type="CheckButton" parent="Centro/Caja/FilaSubs"]
+layout_mode = 2
+
+[node name="FilaRemapeo" type="HBoxContainer" parent="Centro/Caja"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Etiqueta" type="Label" parent="Centro/Caja/FilaRemapeo"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OPC_REMAPEO"
+
+[node name="Tecla" type="Button" parent="Centro/Caja/FilaRemapeo"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "E"
+
+[node name="BtnVolver" type="Button" parent="Centro/Caja"]
+layout_mode = 2
+text = "OPC_VOLVER"
