@@ -144,3 +144,16 @@ Puedes hacer lo mismo en local:
 godot --headless --path labs/multijugador/solucion -- --server --segundos 30 &
 godot --headless --path labs/multijugador/solucion -- --conectar 127.0.0.1 --bot --segundos 12
 ```
+
+> **Un error que verás y que no es tuyo.** Al desconectarse un cliente, a veces
+> aparece `ERROR: Unable to send packet on channel 0, max channels: 0`. Lo emite
+> ENet cuando un peer se va y todavía había algo en vuelo hacia él: una carrera
+> entre la desconexión y el siguiente envío. No es un fallo de este lab —
+> desactivando todos sus RPC, el mensaje sigue saliendo (lo emiten el
+> `MultiplayerSynchronizer` y el `Spawner`), y desde GDScript no se puede cerrar
+> esa ventana. La CI lo filtra explícitamente, y solo a él.
+>
+> Lo que sí está en tu mano, y el lab lo hace, es no empeorarlo: antes de
+> contestarle a alguien, comprueba que sigue conectado
+> (`multiplayer.get_peers().has(peer_id)`). Un servidor de verdad no le habla a
+> quien se ha ido.

@@ -19,8 +19,26 @@ Ambas versiones se **verifican en CI con Godot headless** en cada push: se impor
 | [**3D en tercera persona**](3d-tercera-persona/README.md) | [Parte 2](../classes/parte-2-desarrollo-3d-motores-escenas-y-transformaciones/README.md) (clases 046–067) | Un nivel 3D explorable: control relativo a la cámara, cámara orbital con `SpringArm3D`, cristales y portal de salida. |
 | [**Shaders**](shaders/README.md) | [Parte 4](../classes/parte-4-graficos-shaders-y-rendering-moderno/README.md) (clases 086–107) | Una galería de siete shaders con sus uniforms editables en vivo: UV, ondas, disolución, contorno, agua, cel shading y post-procesado CRT. |
 | [**Multijugador**](multijugador/README.md) | [Parte 7](../classes/parte-7-multijugador-y-networking/README.md) (clases 138–155) | Una arena en red con servidor autoritativo: predicción, reconciliación, interpolación de remotos y validación anti-cheat, sobre ENet puro. |
+| [**IA de enemigos**](ia-enemigo/README.md) | [Parte 5](../classes/parte-5-inteligencia-artificial-para-juegos/README.md) (clases 108–125) | Un enemigo con behavior tree, cono de visión, memoria y pathfinding A\*: patrulla, te ve, te persigue, te pierde y va a buscarte. |
 
-> Más laboratorios (IA) se irán añadiendo siguiendo el [roadmap](../ROADMAP.md).
+## 🎯 Por qué hay cinco labs y no dieciocho
+
+Porque un laboratorio solo tiene sentido cuando la parte **termina en algo que se ejecuta**, y no todas terminan en eso — ni deberían.
+
+- **Las partes de programación** (2D, 3D, shaders, IA, multijugador) terminan en un proyecto que corre. Ahí un lab es lo natural, y lo tienen.
+- **Las partes de arte, game design, producción y carrera** terminan en un entregable que no es un ejecutable: un set de assets coherente, un documento de diseño, un presupuesto, un portfolio. Meterlas a la fuerza en un `project.godot` no enseñaría nada — su reto verificable está en la propia clase, y ahí se queda.
+- **Las que dependen de hardware o de servicios** (VR/AR, móvil y consolas, backends) no se pueden verificar en un servidor de CI sin visor, sin teléfono y sin cuenta. Prometer un lab verificado ahí sería mentir.
+
+Las que sí faltan y tienen sentido —**física** (Parte 3), **audio** (Parte 6), **UI/UX** (Parte 10) y **tooling** (Parte 15)— están en el [roadmap](../ROADMAP.md).
+
+## 🔍 Qué garantiza el badge (y qué no)
+
+Conviene ser exacto, porque es la diferencia entre "está escrito" y "funciona":
+
+- **Los cinco laboratorios se ejecutan en CI** en cada push: se importan, se arrancan con Godot headless y se les exige una prueba positiva — que el nivel se construya, que los shaders compilen, que la red conecte, que la IA decida. Si el badge está verde, **este código funciona**.
+- **El código dentro de los README de clase no se ejecuta en CI.** Está escrito y revisado a mano, y es material de lectura: fragmentos que ilustran una idea, muchos de ellos trozos de un archivo mayor. No son proyectos que se abran.
+
+Dicho de otra forma: el badge cubre los labs, no las 292 clases. Preferimos decirlo a que te lo encuentres.
 
 ## 🚀 Cómo usarlos
 

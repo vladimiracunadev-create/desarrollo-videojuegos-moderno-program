@@ -191,7 +191,13 @@ func enviar_input(seq_cliente: int, dir: Vector2) -> void:
 	#              % [peer_id, paso.length(), VEL * dt * TOLERANCIA])
 	#
 	# TODO 4: dile al dueño dónde está de verdad y hasta qué input has aplicado:
-	#      confirmar_estado.rpc_id(peer_id, global_position, seq_cliente)
+	#      if multiplayer.get_peers().has(peer_id):
+	#          confirmar_estado.rpc_id(peer_id, global_position, seq_cliente)
+	#
+	#      Ese 'if' no sobra: entre que el cliente mandó el input y ahora, ha
+	#      podido desconectarse, y su paquete llegar igual (venía en vuelo).
+	#      Contestar a un peer que ya no está hace que ENet proteste con
+	#      "Unable to send packet on channel 0".
 	#
 	# Cuando lo tengas, arranca un cliente con --tramposo y mira el log del
 	# servidor: verás los rechazos, y al tramposo sin avanzar ni un píxel.

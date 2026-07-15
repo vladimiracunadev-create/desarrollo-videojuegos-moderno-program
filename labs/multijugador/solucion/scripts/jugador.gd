@@ -174,7 +174,14 @@ func enviar_input(seq_cliente: int, dir: Vector2) -> void:
 			% [peer_id, paso.length(), VEL * dt * TOLERANCIA])
 
 	# 5) Le devuelvo al dueño dónde está de verdad y hasta qué input he aplicado.
-	confirmar_estado.rpc_id(peer_id, global_position, seq_cliente)
+	#    Pero solo si sigue ahí: entre que mandó este input y ahora ha podido
+	#    desconectarse, y su paquete llegar igualmente (venía en vuelo). Contestar
+	#    a un peer que ya no está hace que ENet proteste con
+	#    "Unable to send packet on channel 0". No es cosmético: un servidor de
+	#    verdad no le habla a quien se ha ido, y esto pasa constantemente en
+	#    producción, no solo al cerrar una prueba.
+	if multiplayer.get_peers().has(peer_id):
+		confirmar_estado.rpc_id(peer_id, global_position, seq_cliente)
 
 
 # --- Cliente: reconciliación --------------------------------------------------

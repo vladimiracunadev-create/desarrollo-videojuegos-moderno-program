@@ -4,6 +4,8 @@
 
 **18 clases** · rango 108–125 · IA de juegos práctica: FSM y HFSM, behavior trees, pathfinding (A*), navmesh, steering, percepción, utility AI, GOAP, IA de combate, dirección dinámica y generación procedural
 
+> 🧪 **Laboratorio ejecutable:** esta parte tiene un proyecto Godot real — [`labs/ia-enemigo`](../../labs/ia-enemigo/README.md) — con versión `inicio/` (para completar) y `solucion/` (referencia jugable), verificado en CI: la prueba no mira si arranca, sino si el árbol decide.
+
 **Fuentes de referencia de esta parte:**
 
 - Ian Millington & John Funge, *Artificial Intelligence for Games* (2ª ed., CRC Press).

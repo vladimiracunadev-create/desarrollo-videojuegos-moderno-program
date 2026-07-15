@@ -20,6 +20,7 @@ es la base y el primer entregable.
 - [x] Lab **[3D third-person controller](labs/3d-tercera-persona/README.md)** (Parte 2).
 - [x] Lab **[shaders](labs/shaders/README.md)** con ejemplos ejecutables (Parte 4).
 - [x] Lab **[multijugador](labs/multijugador/README.md)** cliente-servidor mínimo (Parte 7).
+- [x] Lab **[IA de enemigos](labs/ia-enemigo/README.md)** con behavior tree, percepción y A* (Parte 5).
 
 Cada lab viene en versión `inicio/` (con `TODO`) y `solucion/`, y las dos se verifican en
 CI con Godot headless. Ver **[labs/](labs/README.md)**.
@@ -40,6 +41,9 @@ CI con Godot headless. Ver **[labs/](labs/README.md)**.
 
 ---
 
-**Prioridad actual:** las presentaciones **PPTX** de la Fase 3, y un lab de **IA** (Parte 5)
-que no estaba en el plan original pero encaja con el resto.
+**Prioridad actual:** más laboratorios donde tengan sentido — **física** (Parte 3), **audio**
+(Parte 6), **UI/UX** (Parte 10) y **tooling** (Parte 15) — y las presentaciones **PPTX** de la
+Fase 3. No habrá un lab por parte: las de arte, producción y carrera terminan en un entregable
+que no es un ejecutable, y las de VR/AR y móvil no se pueden verificar sin hardware
+(ver [labs/](labs/README.md)).
 ¿Ideas o mejoras? Abre un *issue*.
