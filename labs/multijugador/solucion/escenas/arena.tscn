@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/arena.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/hud_arena.gd" id="2_hud"]
+
+[node name="Arena" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Fondo" type="ColorRect" parent="."]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 776.0
+offset_bottom = 576.0
+color = Color(0.16, 0.18, 0.23, 1)
+
+[node name="Jugadores" type="Node2D" parent="."]
+
+[node name="Spawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://escenas/jugador.tscn")
+spawn_path = NodePath("../Jugadores")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("2_hud")
+
+[node name="Datos" type="VBoxContainer" parent="HUD"]
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 400.0
+offset_bottom = 100.0
+
+[node name="Rol" type="Label" parent="HUD/Datos"]
+layout_mode = 2
+text = "…"
+
+[node name="Conectados" type="Label" parent="HUD/Datos"]
+layout_mode = 2
+text = "Jugadores: 0"
+
+[node name="Ayuda" type="Label" parent="HUD/Datos"]
+layout_mode = 2
+modulate = Color(1, 1, 1, 0.6)
+text = "WASD o flechas para moverte"

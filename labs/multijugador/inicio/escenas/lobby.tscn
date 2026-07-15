@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/lobby.gd" id="1_script"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Caja" type="VBoxContainer" parent="Centro"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Titulo" type="Label" parent="Centro/Caja"]
+layout_mode = 2
+text = "Arena en red"
+horizontal_alignment = 1
+
+[node name="BtnServidor" type="Button" parent="Centro/Caja"]
+layout_mode = 2
+text = "Alojar partida (servidor)"
+
+[node name="FilaIP" type="HBoxContainer" parent="Centro/Caja"]
+layout_mode = 2
+
+[node name="Etiqueta" type="Label" parent="Centro/Caja/FilaIP"]
+layout_mode = 2
+text = "IP:"
+
+[node name="IP" type="LineEdit" parent="Centro/Caja/FilaIP"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "127.0.0.1"
+
+[node name="BtnCliente" type="Button" parent="Centro/Caja"]
+layout_mode = 2
+text = "Unirse"
+
+[node name="Estado" type="Label" parent="Centro/Caja"]
+layout_mode = 2
+modulate = Color(1, 1, 1, 0.7)
+text = "…"
+horizontal_alignment = 1
+autowrap_mode = 3

@@ -19,7 +19,7 @@ es la base y el primer entregable.
 - [x] Lab **[plataformas 2D](labs/plataformas-2d/README.md)** completo (Parte 1) como repositorio jugable.
 - [x] Lab **[3D third-person controller](labs/3d-tercera-persona/README.md)** (Parte 2).
 - [x] Lab **[shaders](labs/shaders/README.md)** con ejemplos ejecutables (Parte 4).
-- [ ] Lab **multijugador** cliente-servidor mínimo (Parte 7).
+- [x] Lab **[multijugador](labs/multijugador/README.md)** cliente-servidor mínimo (Parte 7).
 
 Cada lab viene en versión `inicio/` (con `TODO`) y `solucion/`, y las dos se verifican en
 CI con Godot headless. Ver **[labs/](labs/README.md)**.
@@ -40,6 +40,6 @@ CI con Godot headless. Ver **[labs/](labs/README.md)**.
 
 ---
 
-**Prioridad actual:** cerrar la Fase 2 con el lab de **multijugador** (Parte 7), el único que
-queda por construir.
+**Prioridad actual:** las presentaciones **PPTX** de la Fase 3, y un lab de **IA** (Parte 5)
+que no estaba en el plan original pero encaja con el resto.
 ¿Ideas o mejoras? Abre un *issue*.

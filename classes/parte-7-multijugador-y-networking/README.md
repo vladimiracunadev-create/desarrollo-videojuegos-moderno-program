@@ -4,6 +4,8 @@
 
 **18 clases** · rango 138–155 · Del socket al shooter en red: arquitecturas, MultiplayerAPI de Godot, RPCs, replicación de estado, predicción/reconciliación, rollback, servidores dedicados y seguridad
 
+> 🧪 **Laboratorio ejecutable:** esta parte tiene un proyecto Godot real — [`labs/multijugador`](../../labs/multijugador/README.md) — con versión `inicio/` (para completar) y `solucion/` (referencia jugable), verificado en CI levantando un servidor y varios clientes de verdad.
+
 **Fuentes de referencia de esta parte:**
 
 - Joshua Glazer & Sanjay Madhav, *Multiplayer Game Programming* (Addison-Wesley).

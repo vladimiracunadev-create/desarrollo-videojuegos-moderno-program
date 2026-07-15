@@ -66,7 +66,7 @@ De los roles más difíciles y mejor pagados.
 1. 📚 **Parte 0** (001–025) · foco en redes básicas y determinismo (022)
 2. 📚 **Parte 1** (026–045) · 📚 **Parte 2** (046–067) · base de gameplay
 3. 📚 **Parte 3** — Física y determinismo (068–085) · especialmente la clase 084
-4. 📚 **Parte 7** — Multijugador (138–155) · **el núcleo**: RPCs, predicción, rollback
+4. 📚 **Parte 7** — Multijugador (138–155) · **el núcleo**: RPCs, predicción, rollback · 🧪 [Lab multijugador](../labs/multijugador/README.md)
 5. 🎯 **Hito**: un juego en red cliente-servidor autoritativo (clase 155)
 6. 📚 **Parte 14** — Optimización (240–254) · 📚 **Parte 15** — servidores y CI (255–266)
 7. 📚 **Parte 17** — Capstone y portfolio

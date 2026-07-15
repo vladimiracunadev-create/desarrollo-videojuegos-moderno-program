@@ -36,7 +36,7 @@ jobs:
         # Cada lab se valida en sus dos versiones: la solución de referencia y
         # el proyecto de partida (el alumno debe poder abrir 'inicio' y que
         # arranque sin errores).
-        lab: [plataformas-2d, 3d-tercera-persona, shaders]
+        lab: [plataformas-2d, 3d-tercera-persona, shaders, multijugador]
         proyecto: [solucion, inicio]
         # 'marcador' es la prueba POSITIVA de cada lab: la línea que el proyecto
         # tiene que imprimir para demostrar que no solo arrancó, sino que llegó a
@@ -49,6 +49,10 @@ jobs:
             marcador: "Nivel construido:"
           - lab: shaders
             marcador: "Galería construida:"
+          # Sin ventana y sin argumentos, el lab de multijugador se arranca como
+          # servidor dedicado (clase 151): eso es justo lo que hace este job.
+          - lab: multijugador
+            marcador: "Servidor escuchando:"
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -125,3 +129,139 @@ jobs:
             echo "- Escenas: **$(find "$PROY" -name '*.tscn' | wc -l)**"
             echo "- Shaders: **$(find "$PROY" -name '*.gdshader' | wc -l)**"
           } >> "$GITHUB_STEP_SUMMARY"
+
+  # El lab de multijugador necesita algo que los demás no: comprobar que dos
+  # procesos hablan entre sí de verdad. El job de arriba solo verifica que el
+  # servidor arranca; este levanta un servidor y tres clientes headless contra
+  # él y comprueba que la red hace su trabajo.
+  #
+  # Solo corre sobre 'solucion': 'inicio' tiene los TODO sin hacer, así que no
+  # predice ni valida nada y no podría pasar estas comprobaciones. Es lo
+  # esperado, no un fallo.
+  red:
+    name: multijugador · prueba de red real
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          lfs: true
+
+      - name: Descargar Godot ${{ env.GODOT_VERSION }} (headless)
+        run: |
+          set -euo pipefail
+          URL="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          curl -sSfL "$URL" -o godot.zip
+          unzip -q godot.zip
+          mv "Godot_v${GODOT_VERSION}-stable_linux.x86_64" /usr/local/bin/godot
+          chmod +x /usr/local/bin/godot
+
+      - name: Importar
+        run: |
+          set -euo pipefail
+          godot --headless --path labs/multijugador/solucion --import > import.log 2>&1 || true
+          if grep -E "SCRIPT ERROR|Parse Error|ERROR:" import.log; then
+            echo "::error::el lab de multijugador no importa limpio"
+            exit 1
+          fi
+
+      - name: Levantar servidor y clientes
+        run: |
+          set -euo pipefail
+          PROY="labs/multijugador/solucion"
+
+          # El servidor vive más que los clientes para poder ver sus bajas.
+          godot --headless --path "$PROY" -- --server --segundos 30 > server.log 2>&1 &
+
+          # Esperar a que escuche de verdad en vez de dormir a ciegas: en un
+          # runner cargado, un sleep fijo es una promesa que no se cumple.
+          for i in $(seq 1 30); do
+            grep -q "Servidor escuchando:" server.log && break
+            sleep 1
+          done
+          if ! grep -q "Servidor escuchando:" server.log; then
+            echo "::error::el servidor no llegó a escuchar"
+            cat server.log
+            exit 1
+          fi
+
+          # Dos clientes honestos (bots con un patrón fijo) y uno tramposo.
+          godot --headless --path "$PROY" -- --conectar 127.0.0.1 --bot --segundos 12 > c1.log 2>&1 &
+          C1=$!
+          godot --headless --path "$PROY" -- --conectar 127.0.0.1 --bot --segundos 12 > c2.log 2>&1 &
+          C2=$!
+          godot --headless --path "$PROY" -- --conectar 127.0.0.1 --tramposo --segundos 12 > cheat.log 2>&1 &
+          C3=$!
+          wait $C1 $C2 $C3 || true
+
+          # Que al servidor le dé tiempo a ver las desconexiones y cerrar.
+          for i in $(seq 1 30); do
+            grep -q "Informe de SERVIDOR" server.log && break
+            sleep 1
+          done
+
+      - name: Comprobar que la red hizo su trabajo
+        run: |
+          set -euo pipefail
+          fallos=0
+          fallo() { echo "::error::$1"; fallos=$((fallos + 1)); }
+
+          # 1) Nadie puede haber soltado un error.
+          for f in server.log c1.log c2.log cheat.log; do
+            if grep -E "SCRIPT ERROR|Parse Error|ERROR:|Cannot call method" "$f"; then
+              fallo "$f contiene errores"
+            fi
+          done
+
+          # 2) Los tres clientes llegaron al servidor.
+          conectados=$(grep -c "Peer conectado:" server.log || true)
+          [ "$conectados" -ge 3 ] || fallo "el servidor solo vio $conectados peer(s), esperaba 3"
+
+          # 3) El spawner replicó los avatares: cada cliente ve el suyo Y los ajenos.
+          grep -q "Avatar recibido del servidor.*el mío" c1.log \
+            || fallo "el cliente 1 no recibió su propio avatar"
+          grep -q "Avatar recibido del servidor.*remoto" c1.log \
+            || fallo "el cliente 1 no vio a los demás jugadores"
+
+          # 4) El ciclo input -> validación -> confirmación cierra.
+          confirmaciones=$(sed -n 's/.*(local): \([0-9]*\) confirmacion.*/\1/p' c1.log | head -1)
+          confirmaciones=${confirmaciones:-0}
+          [ "$confirmaciones" -gt 20 ] \
+            || fallo "el cliente 1 solo recibió $confirmaciones confirmación(es) del servidor"
+
+          # 5) La predicción ACIERTA. Si el cliente y el servidor no hicieran la
+          #    misma cuenta, el servidor lo corregiría en casi todos los paquetes
+          #    (el efecto goma). Toleramos un 20%: alguna corrección real puede
+          #    haber, porque el transporte es unreliable y se pierden inputs.
+          correcciones=$(sed -n 's/.*(local): [0-9]* confirmacion(es), \([0-9]*\) correccion.*/\1/p' c1.log | head -1)
+          correcciones=${correcciones:-999}
+          limite=$((confirmaciones / 5))
+          [ "$correcciones" -le "$limite" ] \
+            || fallo "predicción divergente: $correcciones corrección(es) sobre $confirmaciones confirmación(es) (máx $limite)"
+
+          # 6) El servidor rechaza al tramposo: el anti-cheat no es decorativo.
+          rechazos=$(grep -c "Input rechazado" server.log || true)
+          [ "$rechazos" -gt 0 ] \
+            || fallo "el servidor no rechazó ni un input del cliente --tramposo"
+
+          # 7) Al irse los clientes, sus avatares desaparecen sin ruido.
+          grep -q "Avatar retirado del peer" server.log \
+            || fallo "el servidor no limpió los avatares al desconectar"
+
+          echo ""
+          echo "peers vistos: $conectados · confirmaciones: $confirmaciones · correcciones: $correcciones (máx $limite) · inputs rechazados al tramposo: $rechazos"
+          {
+            echo "### 🌐 Prueba de red (servidor + 3 clientes headless)"
+            echo ""
+            echo "- Peers conectados: **$conectados**"
+            echo "- Confirmaciones recibidas por un cliente: **$confirmaciones**"
+            echo "- Correcciones de reconciliación: **$correcciones** (máx tolerado: $limite)"
+            echo "- Inputs rechazados al cliente tramposo: **$rechazos**"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$fallos" -gt 0 ]; then
+            echo "--- server.log ---"; cat server.log
+            echo "--- c1.log ---"; cat c1.log
+            exit 1
+          fi
+          echo "La red funciona ✔"

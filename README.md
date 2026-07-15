@@ -45,6 +45,7 @@ No solo se lee: se juega. El programa incluye **proyectos Godot reales** que se 
 - 🕹️ **[Plataformas 2D](labs/plataformas-2d/README.md)** — el juego completo de la Parte 1: game feel, monedas, enemigos, HUD, audio y récord persistente.
 - 🎮 **[3D en tercera persona](labs/3d-tercera-persona/README.md)** — el nivel explorable de la Parte 2: control relativo a la cámara, cámara orbital con `SpringArm3D` y recolectables.
 - 🎨 **[Shaders](labs/shaders/README.md)** — la galería de la Parte 4: siete shaders (UV, ondas, disolución, contorno, agua, cel shading y CRT) con sus uniforms editables en marcha.
+- 🌐 **[Multijugador](labs/multijugador/README.md)** — la arena en red de la Parte 7: servidor autoritativo, predicción, reconciliación e interpolación, verificado en CI levantando un servidor y tres clientes de verdad.
 
 Los assets son **CC0 generados por código** ([`scripts/generar_assets.py`](scripts/generar_assets.py)) y cada push **verifica los proyectos con Godot headless** (importa, compila y arranca). Ver **[labs/](labs/README.md)**.
 

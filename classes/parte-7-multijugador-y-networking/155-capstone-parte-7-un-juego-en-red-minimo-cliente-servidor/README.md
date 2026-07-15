@@ -2,6 +2,11 @@
 
 > Parte: **7 — Multijugador y networking** · Fuente: *Documentación de Godot 4 (High-level multiplayer, MultiplayerSpawner, MultiplayerSynchronizer) + síntesis de las clases 150–154*
 > ⏱️ Duración estimada: **75 min** · Nivel: **Avanzado**
+>
+> 🧪 **Proyecto de referencia:** este capstone tiene un laboratorio ejecutable en
+> [`labs/multijugador`](../../../labs/multijugador/README.md): abre `inicio/` para construirlo tú
+> (con `TODO` guiados) o `solucion/` para ver la implementación completa y jugable.
+> La CI lo verifica levantando un servidor y tres clientes headless de verdad.
 
 ---
 
