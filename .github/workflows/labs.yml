@@ -36,7 +36,7 @@ jobs:
         # Cada lab se valida en sus dos versiones: la solución de referencia y
         # el proyecto de partida (el alumno debe poder abrir 'inicio' y que
         # arranque sin errores).
-        lab: [plataformas-2d, 3d-tercera-persona, shaders, multijugador]
+        lab: [plataformas-2d, 3d-tercera-persona, shaders, multijugador, ia-enemigo]
         proyecto: [solucion, inicio]
         # 'marcador' es la prueba POSITIVA de cada lab: la línea que el proyecto
         # tiene que imprimir para demostrar que no solo arrancó, sino que llegó a
@@ -53,6 +53,8 @@ jobs:
           # servidor dedicado (clase 151): eso es justo lo que hace este job.
           - lab: multijugador
             marcador: "Servidor escuchando:"
+          - lab: ia-enemigo
+            marcador: "Nivel construido:"
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -265,3 +267,96 @@ jobs:
             exit 1
           fi
           echo "La red funciona ✔"
+
+  # Que el lab de IA arranque no dice nada: un enemigo plantado también arranca.
+  # Este job lo pone a prueba de verdad — mueve al jugador por un circuito fijo y
+  # exige que el árbol RECORRA sus ramas: patrulla, te ve y persigue, te pierde y
+  # busca, y vuelve a patrullar.
+  #
+  # Se puede exigir eso en CI porque el lab usa AStarGrid2D (síncrono y
+  # determinista) y un bot con recorrido fijo: la misma entrada da siempre la
+  # misma secuencia. Con NavigationAgent2D —que responde por señal cuando el
+  # servidor termina— esta prueba sería inestable, y una prueba inestable es
+  # peor que no tenerla.
+  #
+  # Solo sobre 'solucion': 'inicio' tiene los TODO sin hacer y su enemigo es
+  # ciego. Es lo esperado, no un fallo.
+  ia:
+    name: ia-enemigo · prueba de comportamiento
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          lfs: true
+
+      - name: Descargar Godot ${{ env.GODOT_VERSION }} (headless)
+        run: |
+          set -euo pipefail
+          URL="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          curl -sSfL "$URL" -o godot.zip
+          unzip -q godot.zip
+          mv "Godot_v${GODOT_VERSION}-stable_linux.x86_64" /usr/local/bin/godot
+          chmod +x /usr/local/bin/godot
+
+      - name: Importar
+        run: |
+          set -euo pipefail
+          godot --headless --path labs/ia-enemigo/solucion --import > import.log 2>&1 || true
+          if grep -E "SCRIPT ERROR|Parse Error|ERROR:" import.log; then
+            echo "::error::el lab de IA no importa limpio"
+            exit 1
+          fi
+
+      - name: Poner a prueba el árbol
+        run: |
+          set -euo pipefail
+          godot --headless --path labs/ia-enemigo/solucion --quit-after 1500 -- --bot 2>&1 | tee ia.log || true
+
+          if grep -E "SCRIPT ERROR|Parse Error|ERROR:|Cannot call method" ia.log; then
+            echo "::error::el lab de IA lanza errores en tiempo de ejecución"
+            exit 1
+          fi
+
+          fallos=0
+          fallo() { echo "::error::$1"; fallos=$((fallos + 1)); }
+
+          # La secuencia de estados, en orden y sin repetir seguidos: es lo que
+          # el enemigo ha DECIDIDO durante la partida. El sed final quita el
+          # espacio que deja tr, que si no rompe el patrón *"patrulla" de abajo.
+          secuencia=$(sed -n 's/^IA: //p' ia.log | tr '\n' ' ' | sed 's/[[:space:]]*$//')
+          echo "Secuencia decidida por el árbol: $secuencia"
+
+          # 1) Empieza patrullando (nadie a la vista).
+          case "$secuencia" in
+            "patrulla"*) ;;
+            *) fallo "el enemigo no empieza patrullando: '$secuencia'" ;;
+          esac
+
+          # 2) Ve al jugador y lo persigue: la rama de combate gana a la patrulla.
+          echo "$secuencia" | grep -q "persecucion" \
+            || fallo "el enemigo nunca detectó al jugador (percepción o prioridad del selector)"
+
+          # 3) Lo pierde y va a buscarlo: la memoria funciona.
+          echo "$secuencia" | grep -q "busqueda" \
+            || fallo "el enemigo no fue a buscar tras perder de vista al jugador (memoria)"
+
+          # 4) Y acaba volviendo a patrullar: no se queda colgado buscando.
+          case "$secuencia" in
+            *"patrulla") ;;
+            *) fallo "el enemigo no volvió a patrullar al final: '$secuencia'" ;;
+          esac
+
+          {
+            echo "### 🧠 Prueba de comportamiento del árbol"
+            echo ""
+            echo "Secuencia decidida: \`$secuencia\`"
+            echo ""
+            echo "- Patrulla → detecta → persigue → pierde → busca → vuelve a patrullar"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$fallos" -gt 0 ]; then
+            cat ia.log
+            exit 1
+          fi
+          echo "El árbol decide de verdad ✔"

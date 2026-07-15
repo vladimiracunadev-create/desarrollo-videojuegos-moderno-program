@@ -19,7 +19,7 @@ El rol más demandado: haces que el juego *se sienta* bien.
 3. 🎯 **Hito**: un plataformas propio con buen *game feel*, exportado y jugable
 4. 📚 **Parte 2** — 3D (046–067) · 🧪 [Lab 3D en tercera persona](../labs/3d-tercera-persona/README.md)
 5. 📚 **Parte 3** — Física aplicada (068–085) · colisiones, steering, easing
-6. 📚 **Parte 5** — IA de juegos (108–125) · FSM, behavior trees, pathfinding
+6. 📚 **Parte 5** — IA de juegos (108–125) · FSM, behavior trees, pathfinding · 🧪 [Lab IA](../labs/ia-enemigo/README.md)
 7. 📚 **Parte 8** — Game design (156–171) · para entender *por qué* diseñas así
 8. 📚 **Parte 14** — Optimización (240–254) · 📚 **Parte 17** — Capstone y portfolio
 

@@ -24,10 +24,12 @@
 ---
 
 > 🧭 **Estado del programa.** **Programa completo: las 18 partes (292 clases) están construidas** — de los fundamentos, el 2D y el 3D a física, shaders, IA, audio, multijugador, game design, arte, UI, plataformas, web, VR/AR, optimización, tooling, producción y carrera profesional. Cada clase incluye laboratorio guiado paso a paso, ejercicios y reto verificable.
+>
+> **Qué está verificado por una máquina y qué no**, para que sepas de qué te fías: los **5 [laboratorios](labs/README.md)** son proyectos Godot completos que la CI importa, arranca y pone a prueba en cada push. El código que vive dentro de los README de clase está escrito y revisado a mano, pero **no se ejecuta en CI**: es material de lectura y guía, no un proyecto que se abra. Si el badge de Labs está verde, lo que garantiza son los laboratorios.
 
 ## 🎯 Qué es esto
 
-Un currículo modular y **secuencial** que cubre **todo el espectro del desarrollo de videojuegos moderno**, paso a paso, en clases numeradas (001→…) agrupadas en 18 partes. No es teoría suelta: cada clase termina en algo que **corre en pantalla**. Cada clase es una carpeta con un `README.md` completo que incluye:
+Un currículo modular y **secuencial** que cubre **todo el espectro del desarrollo de videojuegos moderno**, paso a paso, en clases numeradas (001→…) agrupadas en 18 partes. No es teoría suelta: **cada clase termina en un reto verificable con criterio de aceptación**. En las clases de programación eso es código que corre; en las de arte, producción o carrera, un entregable concreto (un set de assets, un presupuesto, un portfolio). Cada clase es una carpeta con un `README.md` completo que incluye:
 
 - 🎯 **Objetivo** y **resultados de aprendizaje verificables**.
 - 🗺️ **Temas** con el porqué de cada uno.
@@ -46,8 +48,9 @@ No solo se lee: se juega. El programa incluye **proyectos Godot reales** que se 
 - 🎮 **[3D en tercera persona](labs/3d-tercera-persona/README.md)** — el nivel explorable de la Parte 2: control relativo a la cámara, cámara orbital con `SpringArm3D` y recolectables.
 - 🎨 **[Shaders](labs/shaders/README.md)** — la galería de la Parte 4: siete shaders (UV, ondas, disolución, contorno, agua, cel shading y CRT) con sus uniforms editables en marcha.
 - 🌐 **[Multijugador](labs/multijugador/README.md)** — la arena en red de la Parte 7: servidor autoritativo, predicción, reconciliación e interpolación, verificado en CI levantando un servidor y tres clientes de verdad.
+- 🧠 **[IA de enemigos](labs/ia-enemigo/README.md)** — el enemigo de la Parte 5: behavior tree, cono de visión, memoria y pathfinding A\*. La CI no comprueba que arranque, sino que **decide**: patrulla, te ve, te persigue, te pierde y va a buscarte.
 
-Los assets son **CC0 generados por código** ([`scripts/generar_assets.py`](scripts/generar_assets.py)) y cada push **verifica los proyectos con Godot headless** (importa, compila y arranca). Ver **[labs/](labs/README.md)**.
+Los assets son **CC0 generados por código** ([`scripts/generar_assets.py`](scripts/generar_assets.py)) y cada push **verifica los proyectos con Godot headless** (importa, compila y arranca). **No hay un lab por clase, y es a propósito**: los tiene cada parte que termina en algo ejecutable. Las de arte, producción o carrera terminan en un entregable, no en un `.exe` — el porqué, en **[labs/](labs/README.md)**.
 
 ## 🧭 Portal: rutas, autoevaluación, progreso y buscador
 
@@ -135,7 +138,7 @@ Cada parte sigue explícitamente la secuencia y los énfasis de la literatura de
 
 1. **Sigue el orden.** La numeración es secuencial por diseño: cada clase asume lo anterior. Si ya dominas un bloque, sáltalo, pero no empieces por la Parte 4 (shaders) sin la 0.
 2. **Monta el entorno primero.** La [Clase 016](classes/parte-0-fundamentos-y-prerrequisitos/016-montaje-del-entorno-godot-unity-unreal-y-herramientas/README.md) te deja Godot, Unity y las herramientas listas para trabajar.
-3. **Haz los laboratorios.** Leer no basta: cada clase termina en algo que corre. Escribe el código, ejecútalo, rómpelo y arréglalo.
+3. **Haz los retos.** Leer no basta: cada clase termina en un reto con criterio de aceptación. Escribe el código, ejecútalo, rómpelo y arréglalo — y en las clases sin código, entrega la pieza que pidan.
 4. **Construye tu portfolio.** Cada capstone es una pieza publicable. Al final tendrás juegos jugables que enseñar.
 
 ## 🧭 Rutas sugeridas por rol
