@@ -76,11 +76,18 @@ jobs:
           set -euo pipefail
           PROY="labs/plataformas-2d/${{ matrix.proyecto }}"
           godot --headless --path "$PROY" --quit-after 120 2>&1 | tee run.log || true
-          if grep -E "SCRIPT ERROR|Parse Error|Failed loading resource|Cannot call method" run.log; then
+          if grep -E "SCRIPT ERROR|Parse Error|ERROR:|Failed loading resource|Cannot call method" run.log; then
             echo "::error::el proyecto ${{ matrix.proyecto }} lanza errores en tiempo de ejecución"
             exit 1
           fi
-          echo "Arranque sin errores ✔"
+          # Prueba POSITIVA: no basta con que no falle, el nivel debe construirse.
+          if ! grep -q "Nivel construido:" run.log; then
+            echo "::error::el nivel no llegó a construirse (falta el resumen de mundo.gd)"
+            cat run.log
+            exit 1
+          fi
+          grep "Nivel construido:" run.log
+          echo "Arranque y construcción del nivel verificados ✔"
 
       - name: Resumen
         if: always()

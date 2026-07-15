@@ -49,6 +49,9 @@ const TEX_TILESET: Texture2D = preload("res://assets/tileset.png")
 var _spawn: Vector2 = Vector2(32, 32)
 var _jugador: Jugador = null
 var _limite_caida: float = 0.0
+var _n_bloques: int = 0
+var _n_monedas: int = 0
+var _n_enemigos: int = 0
 
 @onready var nivel_root: Node2D = $Nivel
 @onready var entidades: Node2D = $Entidades
@@ -89,12 +92,19 @@ func _construir_nivel() -> void:
 					_crear_bloque(col, fila, TILE_MADERA)
 				"o":
 					_crear_entidad(ESC_MONEDA, col, fila)
+					_n_monedas += 1
 				"e":
 					_crear_entidad(ESC_ENEMIGO, col, fila)
+					_n_enemigos += 1
 				"P":
 					_spawn = _centro(col, fila)
 				"F":
 					_crear_meta(col, fila)
+
+	# Resumen del nivel: te dice de un vistazo si el mapa se leyó bien.
+	# La CI también lo usa como prueba de que el nivel se construyó de verdad.
+	print("Nivel construido: %d bloques, %d monedas, %d enemigos (%dx%d tiles)"
+		% [_n_bloques, _n_monedas, _n_enemigos, NIVEL[0].length(), NIVEL.size()])
 
 
 func _centro(col: int, fila: int) -> Vector2:
@@ -120,6 +130,7 @@ func _crear_bloque(col: int, fila: int, region: int) -> void:
 	cuerpo.add_child(spr)
 
 	nivel_root.add_child(cuerpo)
+	_n_bloques += 1
 
 
 func _crear_entidad(escena: PackedScene, col: int, fila: int) -> void:
