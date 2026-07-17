@@ -112,7 +112,7 @@ def escribir(rel_md: str, md_text: str) -> None:
         quiz=f"{subir}autoevaluaciones/quiz.html",
         progreso=f"{subir}autoevaluaciones/progreso.html",
         labs=f"{subir}labs/README.html",
-        manual=f"{subir}manual/MANUAL-COMPLETO.html",
+        manual=f"{subir}manual/MANUAL.pdf",
         body=render(reescribir_enlaces(md_text)),
     )
     with open(destino, "w", encoding="utf-8") as f:
@@ -245,7 +245,7 @@ def escribir_landing() -> None:
         ("📝", "Autoevaluación", "90 preguntas (una batería por parte) con explicación de cada respuesta.", "autoevaluaciones/quiz.html"),
         ("✅", "Tu progreso", f"Marca las {total_hechas} clases y sigue tu avance (se guarda en tu navegador).", "autoevaluaciones/progreso.html"),
         ("🔎", "Buscador", "Encuentra cualquier tema entre las 292 clases: shaders, coyote time, navmesh, rollback…", "buscar.html"),
-        ("📖", "Manual completo", "Las 292 clases en un solo documento, en orden, para leer de corrido o descargar en PDF.", "manual/MANUAL-COMPLETO.html"),
+        ("📕", "Manual en PDF", "Las 292 clases en un único PDF (~300 págs), en orden, para leer de corrido o estudiar sin conexión.", "manual/MANUAL.pdf"),
     ]
     feats_html = "".join(
         f'<a class="feat" href="{u}"><div class="ic">{i}</div><h3>{t}</h3><p>{d}</p></a>'
@@ -473,10 +473,13 @@ def main() -> int:
             escribir(rel, open(p, encoding="utf-8").read())
             generados += 1
 
-    # El manual completo (si se ha generado): que también se lea online.
-    for p in sorted(glob.glob(os.path.join(ROOT, "manual", "*.md"))):
-        rel = os.path.relpath(p, ROOT).replace("\\", "/")
-        escribir(rel, open(p, encoding="utf-8").read())
+    # Manual completo en PDF: se copia tal cual al sitio para que sea descargable
+    # desde GitHub Pages (el README enlaza a manual/MANUAL.pdf de forma relativa).
+    manual_pdf = os.path.join(ROOT, "manual", "MANUAL.pdf")
+    if os.path.isfile(manual_pdf):
+        destino_manual = os.path.join(OUT, "manual")
+        os.makedirs(destino_manual, exist_ok=True)
+        shutil.copyfile(manual_pdf, os.path.join(destino_manual, "MANUAL.pdf"))
         generados += 1
 
     # Todo el árbol de classes/.

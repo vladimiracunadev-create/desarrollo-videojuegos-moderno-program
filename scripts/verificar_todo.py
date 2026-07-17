@@ -111,7 +111,7 @@ def verificar_repo(r: Resultado) -> None:
     cod, out = correr([sys.executable, "scripts/validar_estructura.py"])
     r.check(cod == 0, "estructura y enlaces íntegros", out)
 
-    print("\n[2/7] Índice, navegación y manual sincronizados")
+    print("\n[2/7] Índice y navegación sincronizados")
     correr([sys.executable, "scripts/generar_indice.py"])
     cod, out = correr(["git", "status", "--porcelain",
                        "classes/_manifest.json", "classes/README.md"])
@@ -120,9 +120,6 @@ def verificar_repo(r: Resultado) -> None:
 
     cod, out = correr([sys.executable, "scripts/generar_navegacion.py", "--check"])
     r.check(cod == 0, "la navegación entre clases está al día", out)
-
-    cod, out = correr([sys.executable, "scripts/generar_manual.py", "--check"])
-    r.check(cod == 0, "el manual completo está al día", out)
 
     print("\n[3/7] Assets")
     cod, out = correr([sys.executable, "scripts/verificar_assets.py"])

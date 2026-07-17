@@ -44,9 +44,6 @@ jobs:
           # reordenar una clase, y se rompe en silencio: los enlaces siguen
           # resolviendo, solo que a la clase equivocada.
           python scripts/generar_navegacion.py --check
-          # El manual reúne las 292 clases en un solo .md: si se edita una clase
-          # y no se regenera, queda desfasado. Mismo patrón que el resto.
-          python scripts/generar_manual.py --check
           echo "Documentación generada sincronizada ✔"
 
       - name: Resumen

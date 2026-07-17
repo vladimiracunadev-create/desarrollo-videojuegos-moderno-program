@@ -63,16 +63,13 @@ Los assets son **CC0 generados por código** ([`scripts/generar_assets.py`](scri
 
 🌐 Todo navegable en el **[sitio del curso](https://vladimiracunadev-create.github.io/modern-gamedev-program/)**.
 
-### 📖 Manual completo
+### 📕 Manual completo (todo el curso en un PDF)
 
-¿Quieres el curso entero en un solo sitio, en orden, para leer de corrido o descargar? Ahí está el **[manual completo](manual/MANUAL-COMPLETO.md)** — las 292 clases en un único Markdown, con su índice arriba. Se lee en GitHub, en el [sitio del curso](https://vladimiracunadev-create.github.io/modern-gamedev-program/manual/MANUAL-COMPLETO.html), o descargándolo.
+¿Prefieres el curso entero en un solo documento, para leer de corrido o estudiar sin conexión? El **manual** consolida las **292 clases** en orden, con portada e índice enlazado.
 
-¿Lo prefieres en **PDF imprimible** (B/N, ~300 págs)? Se genera bajo demanda:
+- 📥 **[Descargar el manual en PDF](manual/MANUAL.pdf)** — ~300 páginas listas para imprimir o leer offline.
 
-```bash
-python -m pip install "markdown>=3.6"
-python scripts/generar_manual.py --pdf   # material/MANUAL-COMPLETO.pdf
-```
+> Se genera con `python scripts/generar_manual.py` a partir de las clases, así que refleja el contenido del repositorio.
 
 ### 🖨️ ¿O solo una parte?
 
@@ -83,7 +80,7 @@ python scripts/generar_material.py --parte 1   # una parte
 python scripts/generar_material.py --all       # las 292 clases (~10 min)
 ```
 
-Los PDF **no se versionan** a propósito (el manual completo pesa ~28 MB, y las guías sueltas sumarían ~200 MB): se generan bajo demanda en `material/`. Salen optimizados para imprimir: sin color, densos y **sin partir los bloques de código** entre páginas.
+Estas guías por clase **no se versionan** (sumarían ~200 MB): se generan bajo demanda en `material/`. Salen optimizadas para imprimir: sin color, densas y **sin partir los bloques de código** entre páginas.
 
 ## 🛠️ Todas las tecnologías, no una sola
 
