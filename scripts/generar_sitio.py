@@ -70,7 +70,7 @@ PLANTILLA = """<!doctype html>
 </style>
 </head>
 <body>
-<div class="nav"><a href="{home}">🎮 Inicio</a> · <a href="{indice}">📚 Clases</a> · <a href="{buscar}">🔎 Buscar</a> · <a href="{rutas}">🧭 Rutas</a> · <a href="{quiz}">📝 Autoevaluación</a> · <a href="{progreso}">✅ Progreso</a> · <a href="{labs}">🧪 Labs</a></div>
+<div class="nav"><a href="{home}">🎮 Inicio</a> · <a href="{indice}">📚 Clases</a> · <a href="{buscar}">🔎 Buscar</a> · <a href="{rutas}">🧭 Rutas</a> · <a href="{manual}">📖 Manual</a> · <a href="{quiz}">📝 Autoevaluación</a> · <a href="{progreso}">✅ Progreso</a> · <a href="{labs}">🧪 Labs</a></div>
 {body}
 </body>
 </html>
@@ -112,6 +112,7 @@ def escribir(rel_md: str, md_text: str) -> None:
         quiz=f"{subir}autoevaluaciones/quiz.html",
         progreso=f"{subir}autoevaluaciones/progreso.html",
         labs=f"{subir}labs/README.html",
+        manual=f"{subir}manual/MANUAL-COMPLETO.html",
         body=render(reescribir_enlaces(md_text)),
     )
     with open(destino, "w", encoding="utf-8") as f:
@@ -244,6 +245,7 @@ def escribir_landing() -> None:
         ("📝", "Autoevaluación", "90 preguntas (una batería por parte) con explicación de cada respuesta.", "autoevaluaciones/quiz.html"),
         ("✅", "Tu progreso", f"Marca las {total_hechas} clases y sigue tu avance (se guarda en tu navegador).", "autoevaluaciones/progreso.html"),
         ("🔎", "Buscador", "Encuentra cualquier tema entre las 292 clases: shaders, coyote time, navmesh, rollback…", "buscar.html"),
+        ("📖", "Manual completo", "Las 292 clases en un solo documento, en orden, para leer de corrido o descargar en PDF.", "manual/MANUAL-COMPLETO.html"),
     ]
     feats_html = "".join(
         f'<a class="feat" href="{u}"><div class="ic">{i}</div><h3>{t}</h3><p>{d}</p></a>'
@@ -470,6 +472,12 @@ def main() -> int:
         if os.path.isfile(p):
             escribir(rel, open(p, encoding="utf-8").read())
             generados += 1
+
+    # El manual completo (si se ha generado): que también se lea online.
+    for p in sorted(glob.glob(os.path.join(ROOT, "manual", "*.md"))):
+        rel = os.path.relpath(p, ROOT).replace("\\", "/")
+        escribir(rel, open(p, encoding="utf-8").read())
+        generados += 1
 
     # Todo el árbol de classes/.
     for cur, _, files in os.walk(os.path.join(ROOT, "classes")):
